@@ -7,11 +7,19 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NewsComponent } from './news/news.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { ContactComponent } from './contact/contact.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    NewsComponent,
+    CategoriesComponent,
+    ContactComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
