@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Horel</a>
+  <button (click)="isCollapsed = !isCollapsed" class="navbar-toggler" type="button" data-toggle="collapse" [attr.aria-expanded]="!isCollapsed" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="d-flex flex-row-reverse collapse navbar-collapse show" id="navbarNavDropdown" ngbDropdown>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Nowości</a>
+      </li>
+      <li class="nav-item dropdown" >
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+          Kategorie
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
+          <a class="dropdown-item" href="#" ngbDropdownItem>Sukienki</a>
+          <a class="dropdown-item" href="#" ngbDropdownItem>Bluzki</a>
+          <a class="dropdown-item" href="#" ngbDropdownItem>Spodnie</a>
+          <a class="dropdown-item" href="#" ngbDropdownItem>Kombinezony</a>
+          <a class="dropdown-item" href="#" ngbDropdownItem>Dodatki</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Kontakt</a>
+      </li>
+    </ul>
+  </div>
+ 
+</nav>
