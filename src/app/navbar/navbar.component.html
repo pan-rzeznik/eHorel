@@ -1,26 +1,29 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" [routerLink]="['/']">Horel</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNavDropdown" ngbDropdown>
+  <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNavAltMarkup">
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/news']">Nowości</a>
       </li>
-      <li class="nav-item dropdown" >
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
-          Kategorie
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" ngbDropdownMenu>
-          <a class="dropdown-item" [routerLink]="['/categories']" ngbDropdownItem>Sukienki</a>
-          <a class="dropdown-item" [routerLink]="['/categories']" ngbDropdownItem>Bluzki</a>
-          <a class="dropdown-item" [routerLink]="['/categories']" ngbDropdownItem>Spodnie</a>
-          <a class="dropdown-item" [routerLink]="['/categories']" ngbDropdownItem>Kombinezony</a>
-          <a class="dropdown-item" [routerLink]="['/categories']" ngbDropdownItem>Dodatki</a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/categories']">Sukienki</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/categories']">Bluzki</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/categories']">Kombinezony</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/categories']">Spodnie</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/categories']">Dodatki</a>
+      </li>
+      <li class="nav-item contact">
         <a class="nav-link" [routerLink]="['/contact']">Kontakt</a>
       </li>
     </ul>
