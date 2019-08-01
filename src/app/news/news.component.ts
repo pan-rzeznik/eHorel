@@ -1,3 +1,4 @@
+import { DbService } from './../services/db.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
-
-  constructor() { }
+  items;
+  constructor(private db: DbService) { }
 
   ngOnInit() {
+    this.db.getDressys().subscribe(res => this.items = res);
   }
 
 }

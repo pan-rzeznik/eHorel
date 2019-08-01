@@ -17,6 +17,7 @@ import { ManageProductsComponent } from './admin/manage-products/manage-products
 import { OrdersComponent } from './admin/orders/orders.component';
 import { environment } from 'src/environments/environment';
 import { LoggedOutComponent } from './logged-out/logged-out.component';
+import { DbService } from './services/db.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,9 @@ import { LoggedOutComponent } from './logged-out/logged-out.component';
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+              DbService
+            ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

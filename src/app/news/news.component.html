@@ -1,3 +1,23 @@
-<p>
-  news works!
-</p>
+<div class="container d-flex">
+  <ng-container *ngFor="let item of items">
+
+      <div class="card m-2" style="width: 18rem;"  *ngIf="item.isNew"> 
+          <span class="badge badge-success" *ngIf="item.isNew">Nowość</span> 
+          <div class="card-body">
+            <h5 class="card-title">{{item.name}}</h5>
+            <p class="card-text">{{item.description}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{item.price | currency:USD}}</li>
+            <li class="list-group-item">
+              Rozmiar: 
+                <span class="badge badge-pill badge-primary" *ngFor="let itemSize of item.size">{{ itemSize}}</span>
+            </li>
+            <li class="list-group-item">Dostępne: {{item.storage}} sztuk</li>
+          </ul>
+          
+        </div>
+  </ng-container>
+  
+</div>
+ 
