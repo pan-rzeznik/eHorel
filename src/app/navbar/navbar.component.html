@@ -6,22 +6,22 @@
   <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNavAltMarkup">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/news']">Nowości</a>
+        <a class="nav-link" [routerLink]="['/news']" routerLinkActive="active">Nowości</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/categories']">Sukienki</a>
+        <a class="nav-link" [routerLink]="['/categories', 'sukienki']" routerLinkActive="active">Sukienki</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/categories']">Bluzki</a>
+        <a class="nav-link" [routerLink]="['/categories', 'bluzki']" routerLinkActive="active">Bluzki</a> 
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/categories']">Kombinezony</a>
+        <a class="nav-link" [routerLink]="['/categories', 'kombinezony']" routerLinkActive="active">Kombinezony</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/categories']">Spodnie</a>
+        <a class="nav-link" [routerLink]="['/categories', 'spodnie']" routerLinkActive="active">Spodnie</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/categories']">Dodatki</a>
+        <a class="nav-link" [routerLink]="['/categories', 'dodatki']" routerLinkActive="active">Dodatki</a>
       </li>
       <div class="dropdown" *ngIf="currentUser" ngbDropdown>
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
