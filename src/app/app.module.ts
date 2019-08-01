@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -14,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './admin/login/login.component';
 import { ManageProductsComponent } from './admin/manage-products/manage-products.component';
 import { OrdersComponent } from './admin/orders/orders.component';
+import { environment } from 'src/environments/environment';
+import { LoggedOutComponent } from './logged-out/logged-out.component';
 
 @NgModule({
   declarations: [
@@ -25,17 +28,18 @@ import { OrdersComponent } from './admin/orders/orders.component';
     HomeComponent,
     LoginComponent,
     ManageProductsComponent,
-    OrdersComponent
+    OrdersComponent,
+    LoggedOutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

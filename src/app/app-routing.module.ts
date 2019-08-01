@@ -7,6 +7,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { NewsComponent } from './news/news.component';
 import { LoginComponent } from './admin/login/login.component';
 import { ManageProductsComponent } from './admin/manage-products/manage-products.component';
+import { LoggedOutComponent } from './logged-out/logged-out.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path: 'admin/orders',
     component: OrdersComponent
+  },
+  {
+    path: 'logged-out',
+    component: LoggedOutComponent
   },
 ];
 

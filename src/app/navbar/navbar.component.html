@@ -23,10 +23,18 @@
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/categories']">Dodatki</a>
       </li>
-      <li class="nav-item contact">
-        <a class="nav-link" [routerLink]="['/contact']">Kontakt</a>
-      </li>
-    </ul>
+      <div class="dropdown" *ngIf="currentUser" ngbDropdown>
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+          Panel
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ngbDropdownMenu>
+          <a class="dropdown-item" ngbDropdownItem [routerLink]="['/admin/manage-products']" >Manage products</a>
+          <a class="dropdown-item" ngbDropdownItem [routerLink]="['/admin/orders']" >Orders</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" ngbDropdownItem (click)="logoutUser()">Logout</a>
+        </div>
+      </div>
+    </ul> 
   </div>
  
 </nav>
