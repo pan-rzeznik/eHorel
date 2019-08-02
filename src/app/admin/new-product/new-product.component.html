@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="input-group mb-3">
+    <input [(ngModel)]="product.name" type="text" class="form-control" placeholder="Nazwa produktu"
+      aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <textarea [(ngModel)]="product.description" type="text" class="form-control" placeholder="Opis produktu"
+      aria-label="Recipient's username" aria-describedby="basic-addon2"></textarea>
+  </div>
+
+  <div class="input-group mb-3">
+    <input [(ngModel)]="product.price" type="number" class="form-control" placeholder="Cena" aria-label="Username"
+      aria-describedby="basic-addon1">
+    <div class="input-group-append">
+      <span class="input-group-text">PLN</span>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <select [(ngModel)]="product.type" class="custom-select" id="inputGroupSelect01">
+      <option *ngFor="let name of categories">{{name}}</option>
+    </select>
+  </div>
+
+  <div class="input-group mb-3">
+    <input [(ngModel)]="product.storage" type="number" class="form-control" placeholder="Ilość w magazynie"
+      aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+  <button class="btn btn-primary" type="button" (click)="createNew()">Wyślij</button>
+</div>

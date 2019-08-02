@@ -1,7 +1,7 @@
-<div class="container d-flex">
-  <ng-container *ngFor="let item of items">
+<div class="container d-flex flex-wrap justify-content-center">
+  <ng-container class="row" *ngFor="let item of items">
 
-      <div class="card m-2" style="width: 18rem;"  *ngIf="item.isNew"> 
+      <div class="card m-2 col-3" style="width: 18rem;"> 
           <span class="badge badge-success" *ngIf="item.isNew">Nowość</span> 
           <div class="card-body">
             <h5 class="card-title">{{item.name}}</h5>

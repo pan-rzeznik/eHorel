@@ -1,3 +1,4 @@
+import { NewProductComponent } from './admin/new-product/new-product.component';
 import { OrdersComponent } from './admin/orders/orders.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'admin/login',
     component: LoginComponent
+  },
+  {
+    path: 'admin/manage-products/add-new',
+    component: NewProductComponent
   },
   {
     path: 'admin/manage-products',
