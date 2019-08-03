@@ -1,4 +1,3 @@
-import { Product } from './../../models/newProduct.models';
 import { DbService } from './../../services/db.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,21 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewProductComponent implements OnInit {
   categories;
-  product: Product;
   constructor(private db: DbService) { }
 
   ngOnInit() {
     this.categories = this.db.categories;
-    this.product = {
-      type: '',
-      name: '',
-      description: '',
-      price: 0,
-      storage: 0,
-      size: []
-    };
   }
-  createNew() {
-    this.db.createNewProduct(this.product);
+  createNew(product) {
+    this.db.createNewProduct(product);
+  }
+  reset(form) {
+    form.reset();
   }
 }

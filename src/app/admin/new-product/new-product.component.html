@@ -1,31 +1,46 @@
-<div class="container">
-  <div class="input-group mb-3">
-    <input [(ngModel)]="product.name" type="text" class="form-control" placeholder="Nazwa produktu"
-      aria-label="Username" aria-describedby="basic-addon1">
+<form #f="ngForm" (ngSubmit)="save(f.value)" class="container w-50">
+  <div class="p-3 rounded shadow"> 
+    <h3 class="mb-4 text-center">Informacje o produkcie</h3>
+        <div class="form-group">
+          <label for="name">Nazwa</label>
+          <input #name="ngModel" ngModel name="name" type="text" class="form-control" id="t" placeholder="Nazwa produktu" required>
+          <div class="alert alert-danger mt-1" role="alert" *ngIf="name.touched && name.invalid">
+            Nazwa produktu jest wymagana
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Opis</label>
+          <textarea #description="ngModel" name="description" ngModel type="text" class="form-control" id="productDescription" placeholder="Opis produktu" required></textarea>
+          <div class="alert alert-danger mt-1" role="alert" *ngIf="description.touched && description.invalid">
+              Opis produktu jest wymagany
+          </div>
+        </div>
+        <div class="form-group"> 
+          <label for="price">Cena</label>
+          <input type="number" #price="ngModel" ngModel name="price" class="form-control" id="productPrice" placeholder="Cena" required>
+          <div class="alert alert-danger mt-1" role="alert" *ngIf="price.touched && price.invalid">
+              Cena produktu jest wymagana
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="category">Kategoria</label>
+          <select #category="ngModel" ngModel name="category" class="form-control" id="exampleCheck1" required >
+            <option *ngFor="let category of categories" [value]="category">{{ category | titlecase  }}</option>
+          </select>
+          <div class="alert alert-danger mt-1" role="alert" *ngIf="category.touched && category.invalid">
+              Kategoria produktu jest wymagana
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="prductImg">Zdjęcie</label>
+            <input #photo="ngModel" ngModel name="photo" type="text" class="form-control" id="photo" placeholder="Adres url zdjęcia" required>
+            <div class="alert alert-danger mt-1" role="alert" *ngIf="photo.touched && photo.invalid">
+                Zdjęcie jest wymagane
+            </div>
+        </div>
+        <div class="d-flex justify-content-between mt-5">
+            <button class="btn btn-warning" type="button" (click)="reset(f)">Zresetuj formularz</button>
+            <button type="submit" class="btn btn-primary" [disabled]="f.invalid" (click)="createNew(f.value)">Zapisz</button>
+        </div>
   </div>
-
-  <div class="input-group mb-3">
-    <textarea [(ngModel)]="product.description" type="text" class="form-control" placeholder="Opis produktu"
-      aria-label="Recipient's username" aria-describedby="basic-addon2"></textarea>
-  </div>
-
-  <div class="input-group mb-3">
-    <input [(ngModel)]="product.price" type="number" class="form-control" placeholder="Cena" aria-label="Username"
-      aria-describedby="basic-addon1">
-    <div class="input-group-append">
-      <span class="input-group-text">PLN</span>
-    </div>
-  </div>
-
-  <div class="input-group mb-3">
-    <select [(ngModel)]="product.type" class="custom-select" id="inputGroupSelect01">
-      <option *ngFor="let name of categories">{{name}}</option>
-    </select>
-  </div>
-
-  <div class="input-group mb-3">
-    <input [(ngModel)]="product.storage" type="number" class="form-control" placeholder="Ilość w magazynie"
-      aria-label="Username" aria-describedby="basic-addon1">
-  </div>
-  <button class="btn btn-primary" type="button" (click)="createNew()">Wyślij</button>
-</div>
+</form> 

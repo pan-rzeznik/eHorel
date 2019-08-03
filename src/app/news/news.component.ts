@@ -7,11 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
-  items;
+  items = [];
   constructor(private db: DbService) { }
 
   ngOnInit() {
-    this.db.getDressys().subscribe(res => this.items = res);
+    this.db.getDressys().subscribe(res => console.log(res));
+    this.db.getDressys2().subscribe(res => console.log(res));
+    this.db.getDressys3().subscribe(res => this.items = res);
+
+    }
+
   }
 
-}
+
+
