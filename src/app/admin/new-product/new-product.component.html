@@ -1,5 +1,5 @@
-<form #f="ngForm" (ngSubmit)="save(f.value)" class="container w-50">
-  <div class="p-3 rounded shadow"> 
+<form #f="ngForm" class="container d-flex">
+  <div class="p-3 rounded shadow-sm col-8"> 
     <h3 class="mb-4 text-center">Informacje o produkcie</h3>
         <div class="form-group">
           <label for="name">Nazwa</label>
@@ -43,4 +43,19 @@
             <button type="submit" class="btn btn-primary" [disabled]="f.invalid" (click)="createNew(f.value)">Zapisz</button>
         </div>
   </div>
-</form> 
+  <div class="p-3 rounded shadow-sm col-4"> 
+      <h3 class="mb-4 text-center">Dostępne rozmiary</h3>
+          <div class="form-group">
+            <label for="size">Dostępne rozmiary</label>
+            <input #size="ngModel" ngModel name="size" type="text" class="form-control" id="t" placeholder="Rozmiar produktu" required>
+            <div class="alert alert-danger mt-1" role="alert" *ngIf="size.touched && size.invalid">
+              Musisz dodać minimu jeden rozmiar
+            </div>
+          </div>
+          <button class="btn btn-primary mb-3" type="button">Dodaj</button>
+          <div class="border rounded p-2">
+              <small class="form-text text-muted mb-2">Lista rozmiarów</small>
+              <span class="badge badge-success">{{ size.value}}</span>
+          </div>
+    </div>
+</form>  

@@ -1,7 +1,8 @@
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { TweenMax } from 'gsap';
+import { delay } from 'q';
 
 @Component({
   selector: 'app-navbar',
@@ -15,9 +16,10 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.auth.currentUser().subscribe(res => this.currentUser = res);
+    TweenMax.from('.nav-link', 1, {scale: 0})
   }
 
-  logoutUser(){
+  logoutUser() {
     this.auth.logoutUser();
     this.router.navigate(['/logged-out']);
   }

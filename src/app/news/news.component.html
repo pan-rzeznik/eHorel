@@ -1,13 +1,21 @@
+
+
 <div class="container-fluid d-flex flex-wrap justify-content-center">
   <ng-container class="row d-flex justify-content-start" *ngFor="let item of items">
-      <div class="card m-2 col-3" style="width: 18rem;"> 
+    <app-product-card 
+    [imageUrl]="item.photo"
+    [name]="item.name"
+    [price]="item.price"
+    [size]="item.size">
+    </app-product-card>
+      <!-- <div class="card m-2 col-3" style="width: 18rem;"> 
           <span class="badge badge-success" *ngIf="item.isNew">Nowość</span> 
-          <div class="card-body">
+          <div class="card-body"> 
             <h5 class="card-title">{{item.name}}</h5>
             <p class="card-text">{{item.description | slice :0:200 }}</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{item.price | currency:USD}}</li>
+            <li class="list-group-item">{{item.price | currency:'USD'}}</li>
             <li class="list-group-item">
               Rozmiar: 
                 <span class="badge badge-pill badge-primary" *ngFor="let itemSize of item.size">{{ itemSize}}</span>
@@ -15,7 +23,7 @@
             <li class="list-group-item">Dostępne: {{item.storage}} sztuk</li>
           </ul>
           <button class="btn btn-info" type="button">Daj ID</button>
-        </div>
+        </div> -->
   </ng-container>
   
 </div>

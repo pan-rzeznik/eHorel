@@ -20,6 +20,7 @@ import { environment } from 'src/environments/environment';
 import { LoggedOutComponent } from './logged-out/logged-out.component';
 import { DbService } from './services/db.service';
 import { NewProductComponent } from './admin/new-product/new-product.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NewProductComponent } from './admin/new-product/new-product.component';
     ManageProductsComponent,
     OrdersComponent,
     LoggedOutComponent,
-    NewProductComponent
+    NewProductComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,

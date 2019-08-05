@@ -1,5 +1,5 @@
 import { DbService } from './../services/db.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-news',
@@ -11,12 +11,8 @@ export class NewsComponent implements OnInit {
   constructor(private db: DbService) { }
 
   ngOnInit() {
-    this.db.getDressys().subscribe(res => console.log(res));
-    this.db.getDressys2().subscribe(res => console.log(res));
-    this.db.getDressys3().subscribe(res => this.items = res);
-
+    this.db.getDressys().subscribe(res => this.items = res);
     }
-
   }
 
 
