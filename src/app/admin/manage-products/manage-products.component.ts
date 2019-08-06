@@ -1,4 +1,6 @@
+import { DbService } from './../../services/db.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-products',
@@ -6,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manage-products.component.scss']
 })
 export class ManageProductsComponent implements OnInit {
-
-  constructor() { }
+  products;
+  constructor(private db: DbService, private router: Router) { }
 
   ngOnInit() {
+    this.db.getDressys().subscribe( res => this.products = res);
   }
-
 }

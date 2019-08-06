@@ -1,30 +1,30 @@
-<form #f="ngForm" class="container d-flex">
+<form [formGroup]="form" class="container d-flex">
   <div class="p-3 rounded shadow-sm col-8"> 
     <h3 class="mb-4 text-center">Informacje o produkcie</h3>
         <div class="form-group">
-          <label for="name">Nazwa</label>
-          <input #name="ngModel" ngModel name="name" type="text" class="form-control" id="t" placeholder="Nazwa produktu" required>
+          <label for="name">Nazwa</label> 
+          <input formControlName="name" type="text" class="form-control" placeholder="Nazwa produktu" value="">
           <div class="alert alert-danger mt-1" role="alert" *ngIf="name.touched && name.invalid">
-            Nazwa produktu jest wymagana
+            Nazwa produktu jest wymagana 
           </div>
-        </div>
+        </div> 
         <div class="form-group">
           <label for="description">Opis</label>
-          <textarea #description="ngModel" name="description" ngModel type="text" class="form-control" id="productDescription" placeholder="Opis produktu" required></textarea>
+          <textarea formControlName="description" type="text" class="form-control" id="productDescription" placeholder="Opis produktu"></textarea>
           <div class="alert alert-danger mt-1" role="alert" *ngIf="description.touched && description.invalid">
               Opis produktu jest wymagany
           </div>
         </div>
         <div class="form-group"> 
           <label for="price">Cena</label>
-          <input type="number" #price="ngModel" ngModel name="price" class="form-control" id="productPrice" placeholder="Cena" required>
+          <input type="number" formControlName="price" class="form-control" id="productPrice" placeholder="Cena">
           <div class="alert alert-danger mt-1" role="alert" *ngIf="price.touched && price.invalid">
               Cena produktu jest wymagana
           </div>
         </div>
         <div class="form-group">
           <label for="category">Kategoria</label>
-          <select #category="ngModel" ngModel name="category" class="form-control" id="exampleCheck1" required >
+          <select formControlName="category" class="form-control" id="exampleCheck1" >
             <option *ngFor="let category of categories" [value]="category">{{ category | titlecase  }}</option>
           </select>
           <div class="alert alert-danger mt-1" role="alert" *ngIf="category.touched && category.invalid">
@@ -32,30 +32,32 @@
           </div>
         </div>
         <div class="form-group">
-            <label for="prductImg">Zdjęcie</label>
-            <input #photo="ngModel" ngModel name="photo" type="text" class="form-control" id="photo" placeholder="Adres url zdjęcia" required>
-            <div class="alert alert-danger mt-1" role="alert" *ngIf="photo.touched && photo.invalid">
-                Zdjęcie jest wymagane
-            </div>
-        </div>
+          <label for="prductImg">Zdjęcie</label>
+          <input formControlName="photo" type="text" class="form-control" id="prductImg" placeholder="Adres url zdjęcia" >
+          <div class="alert alert-danger mt-1" role="alert" *ngIf="photo?.touched && photo?.invalid">
+              Zdjęcie jest wymagane
+          </div>
+      </div>
         <div class="d-flex justify-content-between mt-5">
-            <button class="btn btn-warning" type="button" (click)="reset(f)">Zresetuj formularz</button>
-            <button type="submit" class="btn btn-primary" [disabled]="f.invalid" (click)="createNew(f.value)">Zapisz</button>
+            <button class="btn btn-warning" type="button" (click)="reset(form)">Zresetuj formularz</button>
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid" (click)="createNew(form.value)">Zapisz</button>
         </div>
   </div>
   <div class="p-3 rounded shadow-sm col-4"> 
       <h3 class="mb-4 text-center">Dostępne rozmiary</h3>
           <div class="form-group">
             <label for="size">Dostępne rozmiary</label>
-            <input #size="ngModel" ngModel name="size" type="text" class="form-control" id="t" placeholder="Rozmiar produktu" required>
+            <input formArrayName="size" type="text" #sizeV class="form-control" placeholder="Rozmiar produktu" >
             <div class="alert alert-danger mt-1" role="alert" *ngIf="size.touched && size.invalid">
               Musisz dodać minimu jeden rozmiar
             </div>
           </div>
-          <button class="btn btn-primary mb-3" type="button">Dodaj</button>
+          <button class="btn btn-primary mb-3" type="button" (click)="addSize(sizeV)">Dodaj</button>
           <div class="border rounded p-2">
               <small class="form-text text-muted mb-2">Lista rozmiarów</small>
-              <span class="badge badge-success">{{ size.value}}</span>
+              <span  class="badge badge-success" *ngFor="let s of size.controls">{{ s.value }}</span>
           </div>
     </div>
 </form>  
+
+

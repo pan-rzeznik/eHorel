@@ -30,4 +30,8 @@ export class DbService {
     return this.firebase.collection(category).valueChanges();
   }
 
+  getProduct(id) {
+   return this.firebase.doc('/sukienki/' + id).valueChanges();
+  }
+
 }

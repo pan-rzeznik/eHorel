@@ -1,6 +1,10 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-2 mt-3">
+            <div class="nav flex-column nav-pills mb-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link text-center" id="v-pills-home-tab" data-toggle="pill" [routerLink]="['']" role="tab"
+                  aria-controls="v-pills-home" aria-selected="true">Idź do sklepu</a> 
+              </div>
           <h3 class="text-center mb-3">Nowy produkt</h3>
           <div class="nav flex-column nav-pills mb-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
             <a class="nav-link text-center" id="v-pills-home-tab" data-toggle="pill" [routerLink]="['/admin/manage-products/add-new']" role="tab"
@@ -24,75 +28,22 @@
           </div>
         </div>
         <div class="d-flex flex-wrap col-9">
-          <div class="card m-3" style="max-width: 625px; min-width: 400px;">
+          <div *ngFor="let p of products" class="card m-3" style="max-width: 625px; min-width: 400px;">
             <div class="row no-gutters"> 
               <div class="col-md-4">
                 <img
-                  src="https://images.pexels.com/photos/1906873/pexels-photo-1906873.jpeg?cs=srgb&dl=architecture-beautiful-beauty-1906873.jpg&fm=jpg"
+                  [src]="p.photo"
                   class="card-img" alt="...">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.</p>
+                  <h5 class="card-title">{{p.name}}</h5>
+                  <p class="card-text">{{p.description | slice :0:200}}...</p>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  <button class="btn btn-primary" type="button">Edytuj</button>
+                  <button class="btn btn-primary" [routerLink]="['/admin/manage-products/', p.id]"  type="button">Edytuj</button>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="card m-3" style="max-width: 625px; min-width: 400px;">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img
-                  src="https://images.pexels.com/photos/965324/pexels-photo-965324.jpeg?cs=srgb&dl=colors-contemporary-fashion-965324.jpg&fm=jpg"
-                  class="card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card m-3" style="max-width: 625px; min-width: 400px;">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img
-                  src="https://images.pexels.com/photos/157675/fashion-men-s-individuality-black-and-white-157675.jpeg?cs=srgb&dl=adult-black-and-white-fashion-157675.jpg&fm=jpg"
-                  class="card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card m-3" style="max-width: 625px; min-width: 400px;">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img
-                  src="https://images.pexels.com/photos/1060298/pexels-photo-1060298.jpeg?cs=srgb&dl=adult-bags-blue-jeans-1060298.jpg&fm=jpg"
-                  class="card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            </div> 
+          </div> 
       </div>
 </div>

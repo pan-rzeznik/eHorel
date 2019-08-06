@@ -1,5 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<ng-container *ngIf="showHead">
+<app-header-bilboard></app-header-bilboard>
 <app-navbar></app-navbar>
+</ng-container>
+
+
 <main>
     <router-outlet></router-outlet>
 </main>

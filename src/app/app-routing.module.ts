@@ -40,6 +40,10 @@ const routes: Routes = [
     component: NewProductComponent
   },
   {
+    path: 'admin/manage-products/:id',
+    component: NewProductComponent
+  },
+  {
     path: 'admin/manage-products',
     component: ManageProductsComponent
   },
