@@ -1,4 +1,4 @@
-<form [formGroup]="form" class="container d-flex">
+<!-- <form [formGroup]="form" class="container d-flex">
   <div class="p-3 rounded shadow-sm col-8"> 
     <h3 class="mb-4 text-center">Informacje o produkcie</h3>
         <div class="form-group">
@@ -59,5 +59,78 @@
           </div>
     </div>
 </form>  
+ -->
 
-
+<div class="row">
+  <div class="col">
+    <form [formGroup]="form">
+      <div class="form-group">
+        <label for="name">Nazwa</label>
+        <input formControlName="name" type="text" class="form-control" placeholder="Nazwa produktu">
+      </div>
+      <div class="form-group">
+        <label for="description">Opis</label>
+        <textarea formControlName="description" type="text" class="form-control" id="productDescription"
+          placeholder="Opis produktu" rows="4"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="name">Cena</label>
+        <input formControlName="price" type="number" class="form-control" placeholder="Cena produktu">
+      </div>
+      <div class="form-group">
+        <label for="category">Kategoria</label>
+        <select formControlName="category" class="form-control" id="exampleCheck1">
+          <option *ngFor="let category of categories" [value]="category">{{ category | titlecase  }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+          <label for="storage">Ilość w magazynie</label>
+          <input formControlName="price" type="number" class="form-control" placeholder="Ilośc towaru w magazynie">
+        </div>
+      <div class="form-group">
+        <label for="size">Dostępne rozmiary</label>
+        <input #size type="text" class="form-control" placeholder="Rozmiar produktu">
+      </div>
+      <button class="btn btn-primary mb-3" type="button" (click)="newSize(size)">Dodaj</button>
+      <ul class="list-group list-group-flush" *ngFor="let s of form.get('size').controls; let i = index">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{s.value}}
+          <button type="button" class="close" aria-label="Close" (click)="removeSize(i)">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </li>
+      </ul>
+      <div class="form-group">
+          <label for="size">Dodaj zdjęcia</label>
+          <input #img type="text" class="form-control" placeholder="Link do zdjęcia">
+        </div>
+        <button class="btn btn-primary mb-3" type="button" (click)="newImgLink(img)">Dodaj</button>
+        <ul class="list-group list-group-flush" *ngFor="let p of form.get('photos').controls; let i = index">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{p.value}}
+            <button type="button" class="close" aria-label="Close" (click)="removePhoto(i)">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </li>
+        </ul>
+        <div class="form-check">
+            <input formControlName="promotion" class="form-check-input" type="checkbox" id="promotion">
+            <label class="form-check-label" for="promotion">
+              Promocja
+            </label>
+        </div> 
+        <div class="form-check">
+            <input formControlName="isNew" class="form-check-input" type="checkbox" id="isNew">
+            <label class="form-check-label" for="isNew">
+              Nowość na sklepie
+            </label>
+        </div> 
+        <button class="btn btn-primary mt-3" type="button" (click)="createProduct()">Dodaj produkt do sklepu</button>
+    </form>
+  </div>
+  <div class="col">
+    <pre> 
+      {{ form.value | json }}
+     </pre>
+  </div>
+</div>

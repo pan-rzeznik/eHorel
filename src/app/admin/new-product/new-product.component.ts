@@ -1,8 +1,9 @@
+import { Product } from './../../models/newProduct';
 import { DbService } from './../../services/db.service';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormGroup, FormControl, Validators } from '@angular/forms';
-import { log } from 'util';
-import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormControl} from '@angular/forms';
+
+
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
@@ -10,59 +11,44 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class NewProductComponent implements OnInit {
   categories;
-  product;
-  id;
-
-  form = new FormGroup({
-    name: new FormControl('', Validators.required),
-    description: new FormControl('', Validators.required),
-    price: new FormControl('', Validators.required),
-    category: new FormControl('', Validators.required),
-    photo: new FormControl('', Validators.required),
-    size: new FormArray([], Validators.required)
-  });
-
+  form;
 
   constructor(private db: DbService,
-              private router: Router,
-              private route: ActivatedRoute) { }
+              private fb: FormBuilder) { }
 
   ngOnInit() {
     this.categories = this.db.categories;
 
-    this.id = this.route.snapshot.paramMap.get('id');
-    if(this.id) {
-      this.db.getProduct(this.id).subscribe( res => {this.product = res; console.log(res); });
-    }
-  }
-  addSize(sizeV: HTMLInputElement) {
-    this.size.push(new FormControl(sizeV.value));
-  }
-  createNew(product) {
-    this.db.createNewProduct(product);
-    this.router.navigate(['admin/manage-products']);
-  }
-  reset(form) {
-    form.reset();
+    this.form = this.fb.group({
+      name: [''],
+      description: [''],
+      price: [''],
+      category: [''],
+      storage: [''],
+      isNew: [false],
+      promotion: [false],
+      size: this.fb.array([]),
+      photos: this.fb.array([])
+    });
+
+    console.log(this.form);
   }
 
+  newSize(size: HTMLInputElement) {
+    this.form.get('size').push(new FormControl(size.value));
+  }
+  removeSize(index: number) {
+    this.form.get('size').removeAt(index);
+  }
+  newImgLink(link: HTMLInputElement) {
+    this.form.get('photos').push(new FormControl(link.value));
+  }
+  removePhoto(index: number) {
+    this.form.get('photos').removeAt(index);
+  }
 
-  get name() {
-    return this.form.get('name');
+  createProduct() {
+    this.db.createNewProduct(this.form);
   }
-  get description() {
-    return this.form.get('description');
-  }
-  get price() {
-    return this.form.get('price');
-  }
-  get category() {
-    return this.form.get('category');
-  }
-  get photo() {
-    return this.form.get('photo');
-  }
-  get size() {
-    return this.form.get('size') as FormArray;
-  }
+
 }

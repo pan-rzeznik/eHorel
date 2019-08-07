@@ -3,8 +3,9 @@ export interface Product {
     name: string;
     description: string;
     price: number;
-    size?: number[];
+    size: number[];
     storage: number;
-    photo?: string[];
-    isNew?: boolean;
+    photo: string[];
+    isNew: boolean;
+    promotion: boolean;
 }

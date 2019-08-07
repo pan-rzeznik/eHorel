@@ -1,4 +1,4 @@
-import { Product } from './../models/newProduct.models';
+import { Product } from '../models/newProduct';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
@@ -23,15 +23,7 @@ export class DbService {
     );
   }
 
-  createNewProduct(product: Product) {
-    this.firebase.collection(product.category).add(product);
+  createNewProduct(product) {
+    this.firebase.collection('prodcuts').add(product);
   }
-  getProducts(category: string) {
-    return this.firebase.collection(category).valueChanges();
-  }
-
-  getProduct(id) {
-   return this.firebase.doc('/sukienki/' + id).valueChanges();
-  }
-
 }
