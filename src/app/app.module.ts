@@ -22,6 +22,7 @@ import { DbService } from './services/db.service';
 import { NewProductComponent } from './admin/new-product/new-product.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { HeaderBilboardComponent } from './header-bilboard/header-bilboard.component';
+import { ValidationMeassageComponent } from './admin/new-product/validation-meassage/validation-meassage.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { HeaderBilboardComponent } from './header-bilboard/header-bilboard.compo
     LoggedOutComponent,
     NewProductComponent,
     ProductCardComponent,
-    HeaderBilboardComponent
+    HeaderBilboardComponent,
+    ValidationMeassageComponent
   ],
   imports: [
     BrowserModule,

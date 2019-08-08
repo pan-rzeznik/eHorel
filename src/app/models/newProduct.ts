@@ -5,7 +5,7 @@ export interface Product {
     price: number;
     size: number[];
     storage: number;
-    photo: string[];
+    photos: string[];
     isNew: boolean;
     promotion: boolean;
 }

@@ -1,0 +1,4 @@
+<div class="alert alert-danger" role="alert" *ngIf="control.touched && control.invalid">
+  <p class="m-0" *ngIf="control.errors.required">To pole jest wymagane</p>
+  <p class="m-0" *ngIf="control.errors.cannotLessThanZero"><ng-content></ng-content> nie może być ujemna</p>
+</div> 

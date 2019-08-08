@@ -23,7 +23,23 @@ export class DbService {
     );
   }
 
-  createNewProduct(product) {
-    this.firebase.collection('prodcuts').add(product);
+  createNewProduct(product: Product) {
+    let p: Product;
+    p =  {
+      category: product.category,
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      size: product.size,
+      storage: product.storage,
+      photos: product.photos,
+      isNew: product.isNew,
+      promotion: product.promotion,
+    };
+    this.firebase.collection('products').add(p);
+  }
+
+  getNews() {
+    return this.firebase.collection('products', ref => ref.where('isNew', '==', true)).valueChanges();
   }
 }
