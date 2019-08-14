@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./manage-products.component.scss']
 })
 export class ManageProductsComponent implements OnInit {
-  products;
+  products$;
   constructor(private db: DbService, private router: Router) { }
 
   ngOnInit() {
-    this.db.getDressys().subscribe( res => this.products = res);
+    this.products$ = this.db.getAll();
   }
 }

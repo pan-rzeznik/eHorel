@@ -23,6 +23,9 @@ import { NewProductComponent } from './admin/new-product/new-product.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { HeaderBilboardComponent } from './header-bilboard/header-bilboard.component';
 import { ValidationMeassageComponent } from './admin/new-product/validation-meassage/validation-meassage.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { ProductsListComponent } from './admin/products-list/products-list.component';
+import { PanelMenuComponent } from './admin/panel-menu/panel-menu.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { ValidationMeassageComponent } from './admin/new-product/validation-meas
     NewProductComponent,
     ProductCardComponent,
     HeaderBilboardComponent,
-    ValidationMeassageComponent
+    ValidationMeassageComponent,
+    AdminPanelComponent,
+    ProductsListComponent,
+    PanelMenuComponent
   ],
   imports: [
     BrowserModule,

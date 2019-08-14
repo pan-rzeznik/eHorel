@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class DbService {
   categories = ['sukienki', 'bluzki', 'spodnie', 'kombinezony', 'dodatki'];
+  products = [];
 
   constructor(private firebase: AngularFirestore) { }
 
@@ -41,5 +42,11 @@ export class DbService {
 
   getNews() {
     return this.firebase.collection('products', ref => ref.where('isNew', '==', true)).valueChanges();
+  }
+  getAll() {
+    return this.firebase.collection('products').valueChanges();
+  }
+  getAllToMemory() {
+    this.firebase.collection('products').valueChanges().subscribe( res => { this.products = res; console.log(this.products) });
   }
 }

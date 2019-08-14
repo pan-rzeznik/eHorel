@@ -1,3 +1,4 @@
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { NewProductComponent } from './admin/new-product/new-product.component';
 import { OrdersComponent } from './admin/orders/orders.component';
 import { NgModule } from '@angular/core';
@@ -32,24 +33,30 @@ const routes: Routes = [
     component: CategoriesComponent
   },
   {
-    path: 'admin/login',
-    component: LoginComponent
-  },
-  {
-    path: 'admin/manage-products/add-new',
-    component: NewProductComponent
-  },
-  {
-    path: 'admin/manage-products/:id',
-    component: NewProductComponent
-  },
-  {
-    path: 'admin/manage-products',
-    component: ManageProductsComponent
-  },
-  {
-    path: 'admin/orders',
-    component: OrdersComponent
+    path: 'admin',
+    component: AdminPanelComponent,
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'manage-products/add-new',
+      component: NewProductComponent
+      },
+      {
+        path: 'manage-products/:id',
+        component: NewProductComponent
+      },
+      {
+        path: 'manage-products',
+        component: ManageProductsComponent
+      },
+      {
+        path: 'orders',
+        component: OrdersComponent
+      },
+    ]
   },
   {
     path: 'logged-out',
