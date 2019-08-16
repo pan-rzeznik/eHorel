@@ -7,23 +7,20 @@ import { DbService } from './services/db.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterContentChecked, OnInit{
+export class AppComponent implements AfterContentChecked{
   url;
   title = 'eHorel';
   showHead = true;
 
-  constructor(private router: Router, private db: DbService) {
+  constructor(private router: Router, private db: DbService) { this.db.getAllToMemory();
   }
 
   ngAfterContentChecked() {
-    if(this.url = location.href.includes('admin')) {
+    if(location.href.includes('admin')) {
       this.showHead = false;
     } else {
       this.showHead = true;
     }
   }
 
-  ngOnInit() {
-    this.db.getAllToMemory();
-  }
 }

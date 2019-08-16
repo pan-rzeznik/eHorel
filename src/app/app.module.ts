@@ -1,5 +1,8 @@
+import { ProductsResolver } from './models/products.resoler';
+import { FavoriteListService } from './davorite-list.service';
 import { AuthService } from './services/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -26,6 +29,7 @@ import { ValidationMeassageComponent } from './admin/new-product/validation-meas
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { ProductsListComponent } from './admin/products-list/products-list.component';
 import { PanelMenuComponent } from './admin/panel-menu/panel-menu.component';
+import { IsFavoriteComponent } from './is-favorite/is-favorite.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,8 @@ import { PanelMenuComponent } from './admin/panel-menu/panel-menu.component';
     ValidationMeassageComponent,
     AdminPanelComponent,
     ProductsListComponent,
-    PanelMenuComponent
+    PanelMenuComponent,
+    IsFavoriteComponent
   ],
   imports: [
     BrowserModule,
@@ -55,10 +60,13 @@ import { PanelMenuComponent } from './admin/panel-menu/panel-menu.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [AuthService,
-              DbService
+              DbService,
+              FavoriteListService,
+              ProductsResolver
             ],
   bootstrap: [AppComponent]
 })

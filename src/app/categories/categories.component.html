@@ -5,11 +5,8 @@
   
   <div class="container d-flex flex-wrap justify-content-center "> 
     <ng-container class="d-flex justify-content-start flex-wrap" *ngFor="let item of filteredProduct">
-      <app-product-card 
-      [imageUrl]="item.photos[0]"
-      [name]="item.name"
-      [price]="item.price"
-      [size]="item.size">
+      <app-product-card class="productCard"
+      [product]="item">
       </app-product-card>
     </ng-container>
     

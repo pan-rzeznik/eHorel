@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { DbService } from '../services/db.service';
+
 
 
 @Component({
@@ -10,26 +9,15 @@ import { DbService } from '../services/db.service';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit, OnDestroy {
-  categories;
   category;
-  products = [];
   filteredProduct = [];
-  routeSubscription: Subscription;
-  constructor(private route: ActivatedRoute, private db: DbService) { this.products = this.db.products; }
-  
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    
-    this.routeSubscription = this.route.paramMap.subscribe( res => {
-     this.category = res.get('name');
-      if (this.category) {
-        this.filteredProduct = this.products.filter( c => c.category === this.category );
-      }
-    });
+    this.route.data.subscribe( data => this.filteredProduct = data['products']);
   }
 
   ngOnDestroy() {
-    this.routeSubscription.unsubscribe();
   }
 
 }

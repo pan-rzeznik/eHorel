@@ -1,3 +1,4 @@
+import { ProductsResolver } from './models/products.resoler';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { NewProductComponent } from './admin/new-product/new-product.component';
 import { OrdersComponent } from './admin/orders/orders.component';
@@ -26,7 +27,10 @@ const routes: Routes = [
   },
   {
     path: 'categories/:name',
-    component: CategoriesComponent
+    component: CategoriesComponent,
+    resolve: {
+      products: ProductsResolver
+    }
   },
   {
     path: 'categories',

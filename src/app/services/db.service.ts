@@ -2,6 +2,7 @@ import { Product } from '../models/newProduct';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -41,12 +42,23 @@ export class DbService {
   }
 
   getNews() {
-    return this.firebase.collection('products', ref => ref.where('isNew', '==', true)).valueChanges();
+    return this.firebase.collection('products', ref => ref.where('isNew', '==', true)).snapshotChanges()
+    .pipe(map(snaps => {
+      return snaps.map( snap => {
+        return {
+          id: snap.payload.doc.id,
+          ...snap.payload.doc.data()
+        };
+      });
+    }));
   }
   getAll() {
     return this.firebase.collection('products').valueChanges();
   }
   getAllToMemory() {
     this.firebase.collection('products').valueChanges().subscribe( res => { this.products = res; console.log(this.products) });
+  }
+  getProductsByCategory(category): Observable<any> {
+    return this.firebase.collection('products', ref => ref.where('category', '==', category)).valueChanges();
   }
 }

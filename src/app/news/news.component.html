@@ -2,12 +2,7 @@
 <div class="container d-flex flex-wrap justify-content-center ">
  
   <ng-container class="row d-flex justify-content-start" *ngFor="let item of items$ | async">
-    <app-product-card 
-    [imageUrl]="item.photos[0]"
-    [name]="item.name"
-    [price]="item.price"
-    [size]="item.size">
-    </app-product-card>
+    <app-product-card [product]="item"></app-product-card>
   </ng-container>
   
 </div>

@@ -1,15 +1,16 @@
 <div class="product">
+  <app-is-favorite class="isFavorite" [product]="product"></app-is-favorite>
     <div class="product-card">
       <div class="inner-box">
         <section class="img__section">
           <img
-            [src]="imageUrl"
+            [src]="product.photos[0]" 
             alt="Product image" class="img">
         </section>
         <section class="text__section">
             <h3>Dostępne rozmiary</h3>
             <div class="sizes" >
-              <div class="sizes__box" *ngFor="let s of size">
+              <div class="sizes__box" *ngFor="let s of product.size">
                 <span>{{ s }}</span>
               </div>
             </div>
@@ -19,8 +20,8 @@
       
     </div>
     <div class="outer-box">
-        <h1>{{ name }}</h1>
-        <h2>{{ price }} zł</h2>
+        <h1>{{ product.name }}</h1>
+        <h2>{{ product.price }} zł</h2>
       </div>
       
     </div>
