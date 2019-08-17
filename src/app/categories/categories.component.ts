@@ -1,7 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-
 
 
 @Component({
@@ -9,17 +7,35 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss']
 })
-export class CategoriesComponent implements OnInit, OnDestroy {
+export class CategoriesComponent implements OnInit {
   category;
+  products = [];
   filteredProduct = [];
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(res => this.category = res.get('name'));
-    this.route.data.subscribe( data => this.filteredProduct = data['products']);
+    this.route.data.subscribe( data => {
+      this.filteredProduct = data['products'];
+      this.products = data['products'];
+    });
   }
 
-  ngOnDestroy() {
+  sortASC() {
+    this.filteredProduct.sort((a, b) => a.price - b.price);
+  }
+
+  sortDESC() {
+    this.filteredProduct.sort((a, b) => b.price - a.price);
+  }
+
+  min(event) {
+    this.filteredProduct = [...this.products];
+   this.filteredProduct = this.filteredProduct.filter( product => product.price >= event)
+  }
+ max(event) {
+    this.filteredProduct = [...this.products];
+  if(event != 0) this.filteredProduct = this.filteredProduct.filter( product => product.price <= event)
   }
 
 }

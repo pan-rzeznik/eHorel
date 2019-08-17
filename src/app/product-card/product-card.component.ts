@@ -5,15 +5,11 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })
-export class ProductCardComponent implements OnInit {
+export class ProductCardComponent {
 
   @Input() product;
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.product);
-    
-  }
-
+ 
 }

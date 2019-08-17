@@ -30,6 +30,7 @@ import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { ProductsListComponent } from './admin/products-list/products-list.component';
 import { PanelMenuComponent } from './admin/panel-menu/panel-menu.component';
 import { IsFavoriteComponent } from './is-favorite/is-favorite.component';
+import { ProductFilterComponent } from './product-filter/product-filter.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { IsFavoriteComponent } from './is-favorite/is-favorite.component';
     AdminPanelComponent,
     ProductsListComponent,
     PanelMenuComponent,
-    IsFavoriteComponent
+    IsFavoriteComponent,
+    ProductFilterComponent
   ],
   imports: [
     BrowserModule,

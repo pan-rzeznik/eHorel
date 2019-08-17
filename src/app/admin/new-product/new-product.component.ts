@@ -3,7 +3,6 @@ import { CustomValidators } from './../../validators/customValidator';
 import { DbService } from './../../services/db.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators} from '@angular/forms';
-import { Product } from 'src/app/models/newProduct';
 import { first } from 'rxjs/operators';
 
 
@@ -14,6 +13,7 @@ import { first } from 'rxjs/operators';
 })
 export class NewProductComponent implements OnInit {
   id: string;
+  p;
   categories;
   form;
   product = {};
@@ -27,22 +27,24 @@ export class NewProductComponent implements OnInit {
 
     if (this.id) {
       this.db.getProduct(this.id).pipe(first()).subscribe(res => {
-        this.form.get('name').setValue(res.name);
-        this.form.get('category').setValue(res.category);
-        this.form.get('price').setValue(res.price);
-        this.form.get('storage').setValue(res.storage);
-        this.form.get('isNew').setValue(res.isNew);
-        this.form.get('validSize').setValue(' ');
-        this.form.get('promotion').setValue(res.promotion);
-        this.form.get('description').setValue(res.description);
-        res.size.forEach(s => {
-        this.form.get('size').push(new FormControl(s, CustomValidators.cannotLessThanZero));
-       });
-        res.photos.forEach(p => {
-        this.form.get('photos').push(new FormControl(p, CustomValidators.cannotLessThanZero));
-       });
+       this.p = res;
+        this.form.get('name').setValue(this.p.name);
+    this.form.get('category').setValue(this.p.category);
+    this.form.get('price').setValue(this.p.price);
+    this.form.get('storage').setValue(this.p.storage);
+    this.form.get('isNew').setValue(this.p.isNew);
+    this.form.get('validSize').setValue(' ');
+    this.form.get('promotion').setValue(this.p.promotion);
+    this.form.get('description').setValue(this.p.description);
+    this.p.size.forEach(s => {
+    this.form.get('size').push(new FormControl(s, CustomValidators.cannotLessThanZero));
+   });
+    this.p.photos.forEach(p => {
+    this.form.get('photos').push(new FormControl(p, CustomValidators.cannotLessThanZero));
+   });
       });
     }
+   
     this.categories = this.db.categories;
     this.form = this.fb.group({
       name: ['', Validators.required],
