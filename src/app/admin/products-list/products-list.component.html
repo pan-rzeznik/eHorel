@@ -17,7 +17,7 @@
       <td >{{p.category | titlecase}}</td>
       <td>{{p.price}}</td>
       <td>{{p.storage}}</td>
-      <td><button class="btn btn-primary" type="button">Edytuj</button></td>
+      <td><button class="btn btn-primary" type="button" (click)="edit(p.id)">Edytuj</button></td>
     </tr>
   </tbody>
-</table>  
+</table>   

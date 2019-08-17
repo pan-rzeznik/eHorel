@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products-list',
@@ -7,9 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProductsListComponent implements OnInit {
   @Input() products;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
-
+  edit(id) {
+    this.router.navigate([`admin/manage-products/${id}`]);
+    console.log(id);
+  }
 }

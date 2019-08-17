@@ -53,12 +53,26 @@ export class DbService {
     }));
   }
   getAll() {
-    return this.firebase.collection('products').valueChanges();
+    return this.firebase.collection('products').snapshotChanges()
+    .pipe(map(snaps => {
+      return snaps.map( snap => {
+        return {
+          id: snap.payload.doc.id,
+          ...snap.payload.doc.data()
+        };
+      });
+    }));
   }
   getAllToMemory() {
-    this.firebase.collection('products').valueChanges().subscribe( res => { this.products = res; console.log(this.products) });
+    this.firebase.collection('products').valueChanges().subscribe( res =>  this.products = res);
   }
   getProductsByCategory(category): Observable<any> {
     return this.firebase.collection('products', ref => ref.where('category', '==', category)).valueChanges();
   }
+  getProduct(productId) {
+    return this.firebase.doc(`products/${productId}`).valueChanges();
+  }
+  updateProduct(productId, data) {
+    this.firebase.doc(`products/${productId}`).update(data);
+}
 }
