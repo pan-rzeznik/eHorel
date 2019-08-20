@@ -8,15 +8,14 @@ import { DbService } from './services/db.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterContentChecked{
-  url;
   title = 'eHorel';
   showHead = true;
 
-  constructor(private router: Router, private db: DbService) { this.db.getAllToMemory();
+  constructor(private router: Router) {
   }
 
   ngAfterContentChecked() {
-    if(location.href.includes('admin')) {
+    if (location.href.includes('admin')) {
       this.showHead = false;
     } else {
       this.showHead = true;

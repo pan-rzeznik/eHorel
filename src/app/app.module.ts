@@ -31,6 +31,8 @@ import { ProductsListComponent } from './admin/products-list/products-list.compo
 import { PanelMenuComponent } from './admin/panel-menu/panel-menu.component';
 import { IsFavoriteComponent } from './is-favorite/is-favorite.component';
 import { ProductFilterComponent } from './product-filter/product-filter.component';
+import { SingleProductComponent } from './single-product/single-product.component';
+import { SingleProductResolver } from './models/singleProduct.resolver';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
     ProductsListComponent,
     PanelMenuComponent,
     IsFavoriteComponent,
-    ProductFilterComponent
+    ProductFilterComponent,
+    SingleProductComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,8 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
   providers: [AuthService,
               DbService,
               FavoriteListService,
-              ProductsResolver
+              ProductsResolver,
+              SingleProductResolver
             ],
   bootstrap: [AppComponent]
 })

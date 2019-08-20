@@ -1,5 +1,5 @@
 import { FavoriteListService } from './../davorite-list.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
 import { faHeart} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -9,8 +9,8 @@ import { faHeart} from '@fortawesome/free-solid-svg-icons';
 })
 export class IsFavoriteComponent implements OnInit {
   @Input() product;
+  @Input() state;
   heart = faHeart;
-  isFavorite = false;
   constructor(private storage: FavoriteListService) { }
 
   ngOnInit() {
@@ -18,7 +18,7 @@ export class IsFavoriteComponent implements OnInit {
 
   addToFavoriteList(product) {
     this.storage.addProduct(product);
-    this.isFavorite = !this.isFavorite;
+    this.state = !this.state;
   }
 
 }

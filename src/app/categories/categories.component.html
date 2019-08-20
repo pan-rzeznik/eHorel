@@ -10,11 +10,8 @@
     
     <div class="d-flex flex-wrap col"> 
       <ng-container class="d-flex justify-content-start flex-wrap" *ngFor="let item of filteredProduct">
-        <app-product-card class="productCard"
-        [product]="item">
-        </app-product-card>
+        <app-product-card class="productCard" [product]="item" [routerLink]="['/categories', item.category, item.id]" ></app-product-card>
       </ng-container>
-      
    </div>
   </div>
 

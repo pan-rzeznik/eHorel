@@ -11,6 +11,8 @@ import { NewsComponent } from './news/news.component';
 import { LoginComponent } from './admin/login/login.component';
 import { ManageProductsComponent } from './admin/manage-products/manage-products.component';
 import { LoggedOutComponent } from './logged-out/logged-out.component';
+import { SingleProductComponent } from './single-product/single-product.component';
+import { SingleProductResolver } from './models/singleProduct.resolver';
 
 const routes: Routes = [
   {
@@ -24,6 +26,13 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path: 'categories/:name/:id',
+    component: SingleProductComponent,
+    resolve: {
+      product: SingleProductResolver
+    }
   },
   {
     path: 'categories/:name',

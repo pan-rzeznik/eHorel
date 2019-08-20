@@ -16,10 +16,12 @@ export class CategoriesComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(res => this.category = res.get('name'));
     this.route.data.subscribe( data => {
-      this.filteredProduct = data['products'];
-      this.products = data['products'];
+      this.filteredProduct = data.products;
+      this.products = data.products;
+
     });
   }
+
 
   sortASC() {
     this.filteredProduct.sort((a, b) => a.price - b.price);
@@ -31,11 +33,12 @@ export class CategoriesComponent implements OnInit {
 
   min(event) {
     this.filteredProduct = [...this.products];
-   this.filteredProduct = this.filteredProduct.filter( product => product.price >= event)
+    this.filteredProduct = this.filteredProduct.filter( product => product.price >= event)
   }
  max(event) {
     this.filteredProduct = [...this.products];
-  if(event != 0) this.filteredProduct = this.filteredProduct.filter( product => product.price <= event)
-  }
+    if (event !== 0) {
+      this.filteredProduct = this.filteredProduct.filter( product => product.price <= event)}
+    }
 
 }

@@ -67,8 +67,17 @@ export class DbService {
     this.firebase.collection('products').valueChanges().subscribe( res =>  this.products = res);
   }
   getProductsByCategory(category): Observable<any> {
-    return this.firebase.collection('products', ref => ref.where('category', '==', category)).valueChanges();
-  }
+    return this.firebase.collection('products', ref => ref.where('category', '==', category)).snapshotChanges()
+    .pipe(map(snaps => {
+      return snaps.map( snap => {
+        return {
+          id: snap.payload.doc.id,
+          ...snap.payload.doc.data()
+        };
+      });
+    }));
+}
+
   getProduct(productId) {
     return this.firebase.doc(`products/${productId}`).valueChanges();
   }

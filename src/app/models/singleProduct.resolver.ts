@@ -7,14 +7,12 @@ import { first } from 'rxjs/operators';
 
 
 @Injectable()
-export class ProductsResolver implements Resolve<any> {
+export class SingleProductResolver implements Resolve<any> {
 
     constructor(private db: DbService) {}
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
-        return this.db.getProductsByCategory(route.params.name).pipe(first());
+       return this.db.getProduct(route.params.id).pipe(first());
     }
 }
-
-
-
+ 

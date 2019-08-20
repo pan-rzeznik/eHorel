@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row my-5">
+    <div class="col-8">
+      <div class="col-9"><img [src]="product.photos[0]"></div>
+    </div>
+    <div class="col-4">
+      <h2 class="mb-4"> {{product.name}}</h2>
+      <p class="mb-4">{{product.description}}</p>
+      <h5>Dostęne rozmiary</h5>
+      <div class="sizes mb-3">
+        <span *ngFor="let s of product.size" class="badge badge-dark p-3 mr-2">{{s}}</span>
+      </div>
+      <h3>
+        {{product.price | currency:'PLN' }}
+      </h3>
+    </div>
+  </div>
+</div> 
