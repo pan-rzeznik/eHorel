@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ShoppingCartService } from './../shopping-cart.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -8,13 +9,26 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./single-product.component.scss']
 })
 export class SingleProductComponent implements OnInit {
+  @Input() shoppingCart;
   id: string;
+  selectedSize;
   product;
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private cart: ShoppingCartService) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.route.data.subscribe( res => this.product = res.product);
+    console.log(this.product);
   }
+
+ addToCart() {
+   this.cart.addToCart(this.product, this.selectedSize);
+ }
+
+ test(s) {
+  this.selectedSize = s;
+  console.log(this.selectedSize);
+ }
+
 
 }

@@ -8,11 +8,12 @@
       <p class="mb-4">{{product.description}}</p>
       <h5>Dostęne rozmiary</h5>
       <div class="sizes mb-3">
-        <span *ngFor="let s of product.size" class="badge badge-dark p-3 mr-2">{{s}}</span>
+        <span *ngFor="let s of product.size" (click)="test(s)" class="badge badge-dark p-3 mr-2">{{s}}</span>
       </div>
       <h3>
         {{product.price | currency:'PLN' }}
       </h3>
+      <button class="btn btn-dark" type="button" [disabled]="!selectedSize" (click)="addToCart()">Dodaj do koszyka</button> 
     </div>
   </div>
-</div> 
+</div>   

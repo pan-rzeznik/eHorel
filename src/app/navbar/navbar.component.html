@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+  <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" aria-expanded="false" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNavAltMarkup">
-    <ul class="navbar-nav">
-      <li class="nav-item">
+  <div [collapse]="isCollapsed" class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <ul class="navbar-nav d-flex justify-content-center w-100"> 
+      <li class="nav-item"> 
         <a class="nav-link" [routerLink]="['/news']" routerLinkActive="active">Nowości</a>
       </li>
       <li class="nav-item">
@@ -14,6 +14,7 @@
         <a class="nav-link" [routerLink]="['/categories', 'bluzki']" routerLinkActive="active">Bluzki</a> 
       </li>
       <li class="nav-item">
+        <a href=""></a>
         <a class="nav-link" [routerLink]="['/categories', 'kombinezony']" routerLinkActive="active">Kombinezony</a>
       </li>
       <li class="nav-item">
@@ -22,17 +23,9 @@
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/categories', 'dodatki']" routerLinkActive="active">Dodatki</a>
       </li>
-      <div class="dropdown" *ngIf="currentUser" ngbDropdown>
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
-          Panel
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ngbDropdownMenu>
-          <a class="dropdown-item" ngbDropdownItem [routerLink]="['/admin/manage-products']" >Manage products</a>
-          <a class="dropdown-item" ngbDropdownItem [routerLink]="['/admin/orders']" >Orders</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" ngbDropdownItem (click)="logoutUser()">Logout</a>
-        </div>
-      </div>
+      <li class="nav-item shopping-cart">
+        <a class="nav-link" [routerLink]="['/koszyk']" routerLinkActive="active">Koszyk <span class="badge badge-light" *ngIf="items$ | async as items">{{ items.totalCountOfProduct }}</span></a>
+      </li>
     </ul> 
   </div>
  

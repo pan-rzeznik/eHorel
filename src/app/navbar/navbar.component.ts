@@ -1,6 +1,11 @@
+import { ShoppingCartService } from './../shopping-cart.service';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { ShoppingCard } from '../models/shoppingCard';
+
 
 
 @Component({
@@ -10,16 +15,15 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   currentUser;
+  isCollapsed = true;
+  items$: Observable<ShoppingCard>;
+  constructor(private auth: AuthService,
+              private router: Router,
+              private shoppingCart: ShoppingCartService) { }
 
-  constructor(private auth: AuthService, private router: Router) { }
-
-  ngOnInit() {
+  async ngOnInit() {
     this.auth.currentUser().subscribe(res => this.currentUser = res);
-  }
-
-  logoutUser() {
-    this.auth.logoutUser();
-    this.router.navigate(['/logged-out']);
-  }
-
+    this.items$ = await this.shoppingCart.getCart();
+    }
 }
+

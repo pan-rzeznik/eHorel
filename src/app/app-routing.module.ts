@@ -13,6 +13,7 @@ import { ManageProductsComponent } from './admin/manage-products/manage-products
 import { LoggedOutComponent } from './logged-out/logged-out.component';
 import { SingleProductComponent } from './single-product/single-product.component';
 import { SingleProductResolver } from './models/singleProduct.resolver';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   {
@@ -70,6 +71,10 @@ const routes: Routes = [
         component: OrdersComponent
       },
     ]
+  },
+  {
+    path: 'koszyk',
+    component: ShoppingCartComponent
   },
   {
     path: 'logged-out',

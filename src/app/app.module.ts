@@ -1,6 +1,8 @@
 import { ProductsResolver } from './models/products.resoler';
 import { FavoriteListService } from './davorite-list.service';
 import { AuthService } from './services/auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,6 +35,7 @@ import { IsFavoriteComponent } from './is-favorite/is-favorite.component';
 import { ProductFilterComponent } from './product-filter/product-filter.component';
 import { SingleProductComponent } from './single-product/single-product.component';
 import { SingleProductResolver } from './models/singleProduct.resolver';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,8 @@ import { SingleProductResolver } from './models/singleProduct.resolver';
     PanelMenuComponent,
     IsFavoriteComponent,
     ProductFilterComponent,
-    SingleProductComponent
+    SingleProductComponent,
+    ShoppingCartComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,9 @@ import { SingleProductResolver } from './models/singleProduct.resolver';
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    CollapseModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [AuthService,
               DbService,

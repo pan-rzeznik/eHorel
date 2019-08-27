@@ -1,5 +1,7 @@
 import { DbService } from './../services/db.service';
 import { Component, OnInit } from '@angular/core';
+import { ShoppingCartService } from '../shopping-cart.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +12,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private db: DbService) { }
 
-  ngOnInit() {
+ ngOnInit() {
 
-  }
+}
 
 }

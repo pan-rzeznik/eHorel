@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Twój koszyk</h1>
+    <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+  </div>
+  <div class="row">
+    <table class="table w-100" *ngIf="products$ | async as products">
+      <thead class="thead">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nazwa produktu</th>
+          <th scope="col">Cena</th>
+          <th scope="col">Ilość</th>
+          <th scope="col">Wartość</th>
+          <th scope="col">Usuń</th>
+        </tr>
+      </thead>
+      <tbody class="w-100">
+        <tr *ngFor="let p of products.items; let i = index ">
+          <th scope="row">{{i + 1}}</th>
+          <td class="title">
+            <div class="d-flex">
+                <img [src]="p.product.photos[0]" class="product-img">
+                <div>{{p.product.name}} 
+                    <br/><span> Rozmiar:<strong>{{ p.amount.size }}</strong></span></div>
+            </div>
+              
+              </td>
+          <td >{{p.product.price }}</td>
+          <td>{{p.amount.quantity}}</td>
+          <td>{{ p.amount.quantity * p.product.price}}</td>
+          <td><button class="btn btn-danger" type="button" (click)="removeProduct(p)">Usuń</button></td>
+        </tr>
+      </tbody>
+    </table>  
+   </div>
+</div>
+
