@@ -14,6 +14,8 @@ import { LoggedOutComponent } from './logged-out/logged-out.component';
 import { SingleProductComponent } from './single-product/single-product.component';
 import { SingleProductResolver } from './models/singleProduct.resolver';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { OrderComponent } from './order/order.component';
+import { SummaryComponent } from './summary/summary.component';
 
 const routes: Routes = [
   {
@@ -75,6 +77,14 @@ const routes: Routes = [
   {
     path: 'koszyk',
     component: ShoppingCartComponent
+  },
+  {
+    path: 'zamowienie',
+    component: OrderComponent
+  },
+  {
+    path: 'podsumowanie',
+    component: SummaryComponent
   },
   {
     path: 'logged-out',

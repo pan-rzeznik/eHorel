@@ -18,5 +18,7 @@ export class ShoppingCartComponent implements OnInit {
     console.log(product);
     this.sc.removeProductFromCart(product);
   }
-
+  makeOrder() {
+    
+  }
 }

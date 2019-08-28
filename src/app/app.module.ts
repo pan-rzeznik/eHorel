@@ -36,6 +36,8 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
 import { SingleProductComponent } from './single-product/single-product.component';
 import { SingleProductResolver } from './models/singleProduct.resolver';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { OrderComponent } from './order/order.component';
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     ProductFilterComponent,
     SingleProductComponent,
     ShoppingCartComponent,
+    OrderComponent,
+    SummaryComponent,
   ],
   imports: [
     BrowserModule,

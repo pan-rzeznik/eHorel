@@ -48,6 +48,12 @@ export class ShoppingCartService {
     this.firebase.collection('carts/' + cartId + '/items').doc(product.product.id).delete();
   }
 
+  async removeCart() {
+    const cartId = await this.getOrCreate();
+    const path = `carts/ + ${cartId} + /items`;
+    localStorage.removeItem('shoppingCart');
+  }
+
   async addToCart(product, size) {
 
     const cartId = await this.getOrCreate();

@@ -3,8 +3,8 @@
     <h1 class="display-4">Twój koszyk</h1>
     <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
   </div>
-  <div class="row">
-    <table class="table w-100" *ngIf="products$ | async as products">
+  <div class="row" *ngIf="products$ | async as products">
+    <table class="table w-100" >
       <thead class="thead">
         <tr>
           <th scope="col">#</th>
@@ -32,7 +32,19 @@
           <td><button class="btn btn-danger" type="button" (click)="removeProduct(p)">Usuń</button></td>
         </tr>
       </tbody>
-    </table>  
+      <tfoot>
+        <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tfoot>
+    </table> 
+    <button *ngIf="products.totalCountOfProduct > 0" [routerLink]="['/zamowienie']" class="btn btn-success" type="button">Zamów</button> 
    </div>
 </div>
 
+ 

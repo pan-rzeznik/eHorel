@@ -18,7 +18,6 @@ export class SingleProductComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.route.data.subscribe( res => this.product = res.product);
-    console.log(this.product);
   }
 
  addToCart() {
