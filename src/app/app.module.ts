@@ -1,5 +1,4 @@
 import { ProductsResolver } from './models/products.resoler';
-import { FavoriteListService } from './davorite-list.service';
 import { AuthService } from './services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
@@ -31,13 +30,15 @@ import { ValidationMeassageComponent } from './admin/new-product/validation-meas
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { ProductsListComponent } from './admin/products-list/products-list.component';
 import { PanelMenuComponent } from './admin/panel-menu/panel-menu.component';
-import { IsFavoriteComponent } from './is-favorite/is-favorite.component';
 import { ProductFilterComponent } from './product-filter/product-filter.component';
 import { SingleProductComponent } from './single-product/single-product.component';
 import { SingleProductResolver } from './models/singleProduct.resolver';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { OrderComponent } from './order/order.component';
 import { SummaryComponent } from './summary/summary.component';
+import { ProductGalleryComponent } from './product-gallery/product-gallery.component';
+import { OrderService } from './order.service';
+import { ShoppingCartService } from './shopping-cart.service';
 
 @NgModule({
   declarations: [
@@ -58,12 +59,12 @@ import { SummaryComponent } from './summary/summary.component';
     AdminPanelComponent,
     ProductsListComponent,
     PanelMenuComponent,
-    IsFavoriteComponent,
     ProductFilterComponent,
     SingleProductComponent,
     ShoppingCartComponent,
     OrderComponent,
     SummaryComponent,
+    ProductGalleryComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,9 +81,10 @@ import { SummaryComponent } from './summary/summary.component';
   ],
   providers: [AuthService,
               DbService,
-              FavoriteListService,
               ProductsResolver,
-              SingleProductResolver
+              SingleProductResolver,
+              OrderService,
+              ShoppingCartService
             ],
   bootstrap: [AppComponent]
 })

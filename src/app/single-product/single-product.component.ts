@@ -13,6 +13,7 @@ export class SingleProductComponent implements OnInit {
   id: string;
   selectedSize;
   product;
+  error = false;
   constructor(private route: ActivatedRoute, private cart: ShoppingCartService) { }
 
   ngOnInit() {
@@ -21,12 +22,16 @@ export class SingleProductComponent implements OnInit {
   }
 
  addToCart() {
-   this.cart.addToCart(this.product, this.selectedSize);
+   if (!this.selectedSize) {
+    this.error = true;
+   } else {
+    this.error = false;
+    this.cart.addToCart(this.product, this.selectedSize);
+   }
  }
 
- test(s) {
+ selectSize(s) {
   this.selectedSize = s;
-  console.log(this.selectedSize);
  }
 
 

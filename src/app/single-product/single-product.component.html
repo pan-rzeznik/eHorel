@@ -2,9 +2,7 @@
   <div class="row my-5">
     <div class="col-7">
       <div class="col-7">
-          <div class="img-box">
-              <img [src]="product.photos[0]">
-            </div>
+        <app-product-gallery [images]="product.photos"></app-product-gallery>  
       </div>
       
     </div>
@@ -13,12 +11,16 @@
       <p class="mb-4">{{product.description}}</p>
       <p class="avalibe-sizes">Dostęne rozmiary</p>
       <div class="sizes">
-        <div class="sizes__box mb-3" *ngFor="let s of product.size" (click)="test(s)" [class.active]="selectedSize === s">
+        <div class="sizes__box mb-3" *ngFor="let s of product.size" (click)="selectSize(s)" [class.active]="selectedSize === s">
           <span>{{s}}</span>
-        </div></div>
-
+        </div>
+      </div> 
+      <ng-container *ngIf="error">
+        <small>Musisz wybrać rozamiar zanim przejdziesz dalej</small>
+      </ng-container>
+      
         <div class="add-to-cart">
-          <div class="btn-section"><button class="btn btn-dark" type="button" [disabled]="!selectedSize" (click)="addToCart()">Dodaj do koszyka</button> </div>
+          <div class="btn-section"><button class="btn btn-dark" type="button" (click)="addToCart()">Dodaj do koszyka</button> </div>
           <div class="price-section">{{product.price | currency:'PLN' }}</div>
         </div>
     

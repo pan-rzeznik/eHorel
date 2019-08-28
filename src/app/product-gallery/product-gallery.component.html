@@ -1,0 +1,11 @@
+<div class="img-box">
+  <div class="main-img">
+      <img [src]="mainImage">
+  </div>
+  <div class="thumbnails">
+    <div class="test" *ngFor="let img of images">
+        <img [src]="img" [class.active]="mainImage === img" (click)="changeMainPhoto(img)">
+    </div>
+  </div>
+
+</div>
