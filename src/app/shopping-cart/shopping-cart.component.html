@@ -1,11 +1,14 @@
-<div class="container">
-  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Twój koszyk</h1>
-    <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+<div class="container px-0" *ngIf="products$ | async as products">
+  <div class=" py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1>Twój koszyk</h1>
+    <div class="buttons">
+        <button *ngIf="products.totalCountOfProduct > 0"  class="btn btn-sm btn-secondary" type="button" (click)="clearCard(products)">Wyczyść koszyk</button> 
+        <button *ngIf="products.totalCountOfProduct > 0" [routerLink]="['/zamowienie']" class="btn btn-primary" type="button">Przejdź dalej</button> 
+    </div>
   </div>
-  <div class="row" *ngIf="products$ | async as products">
-    <table class="table w-100" >
-      <thead class="thead">
+  <div class="row" >
+    <table class="table w-100">
+      <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nazwa produktu</th>
@@ -15,21 +18,32 @@
           <th scope="col">Usuń</th>
         </tr>
       </thead>
+      <div class="spacing"></div>
       <tbody class="w-100">
         <tr *ngFor="let p of products.items; let i = index ">
           <th scope="row">{{i + 1}}</th>
           <td class="title">
             <div class="d-flex">
                 <img [src]="p.product.photos[0]" class="product-img">
-                <div>{{p.product.name}} 
-                    <br/><span> Rozmiar:<strong>{{ p.amount.size }}</strong></span></div>
+                <div class="name-box">
+                  <p class="name-box__name" [routerLink]="['/categories/', p.product.category, p.product.id]">{{p.product.name}} </p>
+                    <span class="name-box__size"> Rozmiar: {{ p.amount.size }}</span>
+                </div>
             </div>
               
               </td>
-          <td >{{p.product.price }}</td>
-          <td>{{p.amount.quantity}}</td>
-          <td>{{ p.amount.quantity * p.product.price}}</td>
-          <td><button class="btn btn-danger" type="button" (click)="removeProduct(p)">Usuń</button></td>
+          <td >{{p.product.price }} zł</td>
+          <td>
+            <div class="product-quantity">
+              <button class="btn btn-sm btn-secondary">-</button>
+              <div class="product-quantity__counter">
+                  {{p.amount.quantity}}
+              </div>
+              <button class="btn btn-sm btn-secondary">+</button>
+            </div>
+          </td>
+          <td>{{ p.amount.quantity * p.product.price }} zł</td>
+          <td><button class="remove-btn" type="button" (click)="removeProduct(p)">X</button></td>
         </tr>
       </tbody>
       <tfoot>
@@ -38,12 +52,12 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
+            <td *ngIf="products.items.length"> {{ products.totalCountOfPrice }}zł</td>
             <td></td>
         </tr>
     </tfoot>
     </table> 
-    <button *ngIf="products.totalCountOfProduct > 0" [routerLink]="['/zamowienie']" class="btn btn-success" type="button">Zamów</button> 
+    
    </div>
 </div>
 

@@ -2,6 +2,7 @@ import { take, map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { ShoppingCard } from './models/shoppingCard';
+import * as firebase from 'firebase';
 
 
 
@@ -30,6 +31,7 @@ export class ShoppingCartService {
 
 
   private async getOrCreate() {
+
     const cartId = localStorage.getItem('shoppingCart');
 
     if (!cartId) {

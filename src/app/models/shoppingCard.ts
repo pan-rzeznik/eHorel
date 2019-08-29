@@ -10,4 +10,13 @@ export class ShoppingCard {
         return count;
     }
 
+    get totalCountOfPrice() {
+        let count = 0;
+
+        this.items.forEach(element => {
+            count += element.amount.quantity * element.product.price;
+        });
+        return count.toFixed(2);
+    }
+
 }

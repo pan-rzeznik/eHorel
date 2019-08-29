@@ -31,7 +31,8 @@ export class SingleProductComponent implements OnInit {
  }
 
  selectSize(s) {
-  this.selectedSize = s;
+   this.error = false;
+   this.selectedSize = s;
  }
 
 

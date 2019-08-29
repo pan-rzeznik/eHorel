@@ -13,12 +13,13 @@ export class ShoppingCartComponent implements OnInit {
  async ngOnInit() {
    this.products$ = await this.sc.getCart();
   }
-
+  clearCard(products) {
+    products.items.forEach(element => {
+      this.removeProduct(element);
+    });
+  }
   removeProduct(product) {
     console.log(product);
     this.sc.removeProductFromCart(product);
-  }
-  makeOrder() {
-    
   }
 }
