@@ -11,24 +11,23 @@ export class ProductFilterComponent implements OnInit {
   @Output() minPrice = new EventEmitter<number>();
   @Output() maxPrice = new EventEmitter<number>();
   curruentActive: number;
+  var1;
   constructor() { }
 
   ngOnInit() {
   }
 
+  onChangeFilter() {
+    if (this.var1 === '1') {
+      this.asc();
+    } else {
+      this.desc();
+    }
+  }
   asc() {
     this.sortASC.emit('asc');
-    this.curruentActive = 1;
   }
   desc() {
     this.sortDESC.emit('desc');
-    this.curruentActive = 2;
-  }
-  min(price) {
-    this.minPrice.emit(price);
-  }
-  max(price) {
-    this.maxPrice.emit(price);
   }
 }
- 

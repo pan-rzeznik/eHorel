@@ -1,13 +1,14 @@
-<h5 class="mb-3">Sortowanie produktów</h5>
-<ul class="list-group">
-  <li class="list-group-item" [class.active]="curruentActive == 1" (click)="asc()">Najtańsze</li>
-  <li class="list-group-item" [class.active]="curruentActive == 2" (click)="desc()">Najdroższe</li>
-  <div class="form-group my-2">
-    <label for="exampleInputEmail1">Cena minimalna</label>
-    <input #min1 type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Wpisz kwotę" (change)="min(min1.value)">
+<div class="w-100  d-flex justify-content-end">
+<div class="form-group d-flex w-25 align-items-center">
+  
+    <label for="category" class="mr-2">Filtruj:</label>
+    <select class="form-control w-75" [(ngModel)]="var1" (change)="onChangeFilter()" >
+        <option value=""></option>
+        <option value="1">Cena rosnąco</option> 
+        <option value="2">Cena malejącą</option>
+        <option value="3">Od najnowszych</option>
+        <option value="4">Od najstarszych</option>
+    </select>
   </div>
-  <div class="form-group my-2">
-    <label for="exampleInputEmail1">Cena maxymalna</label>
-    <input #max1 type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Wpisz kwotę" (change)="max(max1.value)">
-  </div>
-</ul> 
+</div>
+

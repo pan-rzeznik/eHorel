@@ -2,11 +2,13 @@
   <div class=" py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h1>Twój koszyk</h1>
     <div class="buttons">
-        <button *ngIf="products.totalCountOfProduct > 0"  class="btn btn-sm btn-secondary" type="button" (click)="clearCard(products)">Wyczyść koszyk</button> 
-        <button *ngIf="products.totalCountOfProduct > 0" [routerLink]="['/zamowienie']" class="btn btn-primary" type="button">Przejdź dalej</button> 
+      <button *ngIf="products.totalCountOfProduct > 0" class="btn btn-sm btn-secondary" type="button"
+        (click)="clearCard(products)">Wyczyść koszyk</button>
+      <button *ngIf="products.totalCountOfProduct > 0" [routerLink]="['/zamowienie']" class="btn btn-primary"
+        type="button">Przejdź dalej</button>
     </div>
   </div>
-  <div class="row" >
+  <div class="row">
     <table class="table w-100">
       <thead>
         <tr>
@@ -21,23 +23,24 @@
       <div class="spacing"></div>
       <tbody class="w-100">
         <tr *ngFor="let p of products.items; let i = index ">
-          <th scope="row" >{{i + 1}}</th>
+          <th scope="row">{{i + 1}}</th>
           <td class="title">
             <div class="d-flex">
-                <img [src]="p.product.photos[0]" class="product-img">
-                <div class="name-box">
-                  <p class="name-box__name" [routerLink]="['/categories/', p.product.category, p.product.id]">{{p.product.name}} </p>
-                    <span class="name-box__size"> Rozmiar: {{ p.amount.size }}</span>
-                </div>
+              <img [src]="p.product.photos[0]" class="product-img">
+              <div class="name-box">
+                <p class="name-box__name" [routerLink]="['/categories/', p.product.category, p.product.id]">
+                  {{p.product.name}} </p>
+                <span class="name-box__size"> Rozmiar: {{ p.amount.size }}</span>
+              </div>
             </div>
-              
-              </td>
-          <td >{{p.product.price }} zł</td>
+
+          </td>
+          <td>{{p.product.price }} zł</td>
           <td>
             <div class="product-quantity">
               <button class="btn btn-sm btn-secondary" (click)="removeOne(p)">-</button>
               <div class="product-quantity__counter">
-                  {{p.amount.quantity}}
+                {{p.amount.quantity}}
               </div>
               <button class="btn btn-sm btn-secondary" (click)="addOne(p)">+</button>
             </div>
@@ -48,17 +51,22 @@
       </tbody>
       <tfoot>
         <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td *ngIf="products.items.length"> {{ products.totalCountOfPrice }}zł</td>
-            <td></td>
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td *ngIf="products.items.length"> {{ products.totalCountOfPrice }}zł</td>
+          <td></td>
         </tr>
-    </tfoot>
-    </table> 
-    
-   </div>
-</div>
+      </tfoot>
+    </table>
+    <ng-container *ngIf="!products.items.length">
+      <div class="w-100">
+        <p class="lead text-center">Niestety jeszcze nie dodałeś, żadnego produktu do koszyka i jest on pusty. 
+          <br/> Zrób to, a Twoje produkty się tutaj pojawią
+        </p>
+      </div>
 
- 
+    </ng-container>
+  </div>
+</div>

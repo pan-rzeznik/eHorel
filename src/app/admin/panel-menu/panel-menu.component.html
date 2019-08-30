@@ -1,17 +1,75 @@
-<div class="side-nav">
-  <div class="pt-5">
-      <div class="nav flex-column nav-pills my-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          <a class="nav-link text-center" id="v-pills-home-tab" data-toggle="pill" [routerLink]="['manage-products']" role="tab"
-            aria-controls="v-pills-home" aria-selected="true">Panel</a> 
-        </div> 
-      <div class="nav flex-column nav-pills my-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          <a class="nav-link text-center" id="v-pills-home-tab" data-toggle="pill" [routerLink]="['']" role="tab"
-            aria-controls="v-pills-home" aria-selected="true">Idź do sklepu</a> 
-        </div>
-    <div class="nav flex-column nav-pills mb-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link text-center" id="v-pills-home-tab" data-toggle="pill" [routerLink]="['/admin/manage-products/add-new']" role="tab"
-        aria-controls="v-pills-home" aria-selected="true">Dodaj nowy</a> 
+<section class="side-nav">
+  <div class="side-nav__personal-info-box">
+    <div class="side-nav__personal-info-box__content">
+      <div class="admin-img-box"></div>
+      <div class="admin-text-box">
+        <h2>Sklep e-Horel</h2>
+        <h3>mailadmina@gmail.com</h3>
+        
+      </div>
     </div>
   </div>
-   
-</div>
+  <nav class="main-nav-box">
+    <div class="nav-items-box">
+      <ul>
+        <li>
+          <div class="nav-items-box__item">
+            <div class="nav-items-box__item-img-box">
+                <img src="../../../assets/admin-nav-icons/home.svg" alt="">  
+            </div>
+            <a>Strona główna</a>
+          </div>
+        </li>
+        <li>
+            <div class="nav-items-box__item">
+                <div class="nav-items-box__item-img-box">
+                <img src="../../../assets/admin-nav-icons/tshirt.svg" alt="">
+                </div>
+                <a>Produkty</a>
+            </div>
+        </li>
+        <li>
+            <div class="nav-items-box__item">
+                <div class="nav-items-box__item-img-box">
+                <img src="../../../assets/admin-nav-icons/Path 199.svg" alt="">
+                </div>
+                <a>Zamówienia</a>
+            </div>
+        </li>
+        <li>
+            <div class="nav-items-box__item">
+                <div class="nav-items-box__item-img-box">
+                <img src="../../../assets/admin-nav-icons/user.svg" alt="">
+                </div>
+                <a>Klienci</a>
+            </div>
+        </li>
+        <li>
+            <div class="nav-items-box__item">
+                <div class="nav-items-box__item-img-box">
+                <img src="../../../assets/admin-nav-icons/sign-out.svg" alt="">
+                </div>
+                <a>Wyloguj</a>
+            </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</section>
+
+
+
+<!-- <div class="pt-5">
+    <div class="nav flex-column nav-pills my-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link text-center" id="v-pills-home-tab" data-toggle="pill" [routerLink]="['manage-products']" role="tab"
+          aria-controls="v-pills-home" aria-selected="true">Panel</a> 
+      </div> 
+    <div class="nav flex-column nav-pills my-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link text-center" id="v-pills-home-tab" data-toggle="pill" [routerLink]="['']" role="tab"
+          aria-controls="v-pills-home" aria-selected="true">Idź do sklepu</a> 
+      </div>
+  <div class="nav flex-column nav-pills mb-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <a class="nav-link text-center" id="v-pills-home-tab" data-toggle="pill" [routerLink]="['/admin/manage-products/add-new']" role="tab"
+      aria-controls="v-pills-home" aria-selected="true">Dodaj nowy</a> 
+  </div>
+</div> -->

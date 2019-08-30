@@ -30,14 +30,4 @@ export class CategoriesComponent implements OnInit {
     this.filteredProduct.sort((a, b) => b.price - a.price);
   }
 
-  min(event) {
-    this.filteredProduct = [...this.products];
-    this.filteredProduct = this.filteredProduct.filter( product => product.price >= event)
-  }
- max(event) {
-    this.filteredProduct = [...this.products];
-    if (event !== 0) {
-      this.filteredProduct = this.filteredProduct.filter( product => product.price <= event)}
-    }
-
 }
