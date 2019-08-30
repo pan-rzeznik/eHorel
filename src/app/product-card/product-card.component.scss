@@ -20,6 +20,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.192);
 
     &:hover .img__section {
+        
         transform: translateY(-80px);
         filter: brightness(.5);
     }

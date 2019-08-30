@@ -21,7 +21,7 @@
       <div class="spacing"></div>
       <tbody class="w-100">
         <tr *ngFor="let p of products.items; let i = index ">
-          <th scope="row">{{i + 1}}</th>
+          <th scope="row" >{{i + 1}}</th>
           <td class="title">
             <div class="d-flex">
                 <img [src]="p.product.photos[0]" class="product-img">
@@ -35,11 +35,11 @@
           <td >{{p.product.price }} zł</td>
           <td>
             <div class="product-quantity">
-              <button class="btn btn-sm btn-secondary">-</button>
+              <button class="btn btn-sm btn-secondary" (click)="removeOne(p)">-</button>
               <div class="product-quantity__counter">
                   {{p.amount.quantity}}
               </div>
-              <button class="btn btn-sm btn-secondary">+</button>
+              <button class="btn btn-sm btn-secondary" (click)="addOne(p)">+</button>
             </div>
           </td>
           <td>{{ p.amount.quantity * p.product.price }} zł</td>

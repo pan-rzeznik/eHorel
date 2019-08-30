@@ -19,7 +19,13 @@ export class ShoppingCartComponent implements OnInit {
     });
   }
   removeProduct(product) {
-    console.log(product);
     this.sc.removeProductFromCart(product);
+  }
+
+  addOne(p) {
+    this.sc.modifyQuantity(p.product.id, 1);
+  }
+  removeOne(p) {
+    this.sc.modifyQuantity(p.product.id, -1);
   }
 }

@@ -57,7 +57,6 @@ export class ShoppingCartService {
   }
 
   async addToCart(product, size) {
-
     const cartId = await this.getOrCreate();
     const item$ = this.firebase.collection('carts/' + cartId + '/items').doc(product.id);
     item$.get().pipe(take(1)).subscribe( i => {
@@ -68,6 +67,17 @@ export class ShoppingCartService {
         item$.update({product, amount: {quantity: +i.get('amount').quantity + 1, size}});
       // tslint:disable-next-line:align
       }
+    });
+  }
+  modifyQuantity(productId, change: number) {
+    const cartId = localStorage.getItem('shoppingCart');
+    const item$ = this.firebase.collection('carts/' + cartId + '/items').doc(productId);
+    item$.get().pipe(take(1)).subscribe( i => {
+      if (i.get('amount').quantity === 1 && change === -1) {
+        this.firebase.collection('carts/' + cartId + '/items').doc(productId).delete();
+        return;
+        }
+      item$.update({ 'amount.quantity': +i.get('amount').quantity + change});
     });
   }
 }
