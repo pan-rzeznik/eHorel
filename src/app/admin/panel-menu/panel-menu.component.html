@@ -12,7 +12,7 @@
   <nav class="main-nav-box">
     <div class="nav-items-box">
       <ul>
-        <li>
+        <li [routerLink]="['/admin']" routerLinkActive="active">
           <div class="nav-items-box__item">
             <div class="nav-items-box__item-img-box">
                 <img src="../../../assets/admin-nav-icons/home.svg" alt="">  
@@ -20,7 +20,7 @@
             <a>Strona główna</a>
           </div>
         </li>
-        <li>
+        <li [routerLink]="['manage-products']" routerLinkActive="active">
             <div class="nav-items-box__item">
                 <div class="nav-items-box__item-img-box">
                 <img src="../../../assets/admin-nav-icons/tshirt.svg" alt="">
@@ -28,7 +28,7 @@
                 <a>Produkty</a>
             </div>
         </li>
-        <li>
+        <li [routerLink]="['orders']" routerLinkActive="active">
             <div class="nav-items-box__item">
                 <div class="nav-items-box__item-img-box">
                 <img src="../../../assets/admin-nav-icons/Path 199.svg" alt="">
@@ -59,17 +59,3 @@
 
 
 
-<!-- <div class="pt-5">
-    <div class="nav flex-column nav-pills my-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link text-center" id="v-pills-home-tab" data-toggle="pill" [routerLink]="['manage-products']" role="tab"
-          aria-controls="v-pills-home" aria-selected="true">Panel</a> 
-      </div> 
-    <div class="nav flex-column nav-pills my-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link text-center" id="v-pills-home-tab" data-toggle="pill" [routerLink]="['']" role="tab"
-          aria-controls="v-pills-home" aria-selected="true">Idź do sklepu</a> 
-      </div>
-  <div class="nav flex-column nav-pills mb-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-    <a class="nav-link text-center" id="v-pills-home-tab" data-toggle="pill" [routerLink]="['/admin/manage-products/add-new']" role="tab"
-      aria-controls="v-pills-home" aria-selected="true">Dodaj nowy</a> 
-  </div>
-</div> -->
