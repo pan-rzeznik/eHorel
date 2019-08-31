@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-panel.component.scss']
 })
 export class AdminPanelComponent implements OnInit {
-
+  sideNavVisibility = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showMenu() {
+    this.sideNavVisibility = !this.sideNavVisibility;
   }
 
 }

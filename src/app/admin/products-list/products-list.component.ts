@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ProductsListComponent implements OnInit {
   @Input() products;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -16,4 +17,6 @@ export class ProductsListComponent implements OnInit {
     this.router.navigate([`admin/manage-products/${id}`]);
     console.log(id);
   }
+  
 }
+ 

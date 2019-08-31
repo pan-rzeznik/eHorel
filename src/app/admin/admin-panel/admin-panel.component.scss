@@ -1,4 +1,53 @@
-
-.container-fluid {
+.router-outlet {
+    width: 100vw;
+    margin-left: 300px;
     max-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transition: .3s margin;
+}
+
+app-panel-menu {
+    position: absolute;
+    z-index: 1000;
+    transition: .3s transform;
+}
+
+.hamburger-menu {
+    display: none;
+}
+
+@media(max-width: 1170px) {
+    .router-outlet {
+        margin-left: 0;
+    }
+    
+    app-panel-menu {
+        transform: translateX(-500px);
+    }
+
+    .hamburger-menu {
+        display: inline-block;
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        cursor: pointer;
+        transition: .3s transform;
+
+        
+
+        &__img {
+            width: 35px;
+            height: 45px;
+        }
+    }
+}
+
+.visible {
+    transform: translateX(0);
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.26);
+}
+
+.moveBtn {
+    transform: translateX(300px);
 }

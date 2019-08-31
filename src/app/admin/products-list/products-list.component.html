@@ -25,7 +25,7 @@
     <h1>Produkty</h1>
   <div class="heading-box">
       <div class="heading-box__filtering">
-          <div class="form-group d-flex align-items-center">
+          <div class="heading-box__filtering__search form-group d-flex align-items-center">
               <label for="name" class="mr-4">Szukaj</label>
               <input type="text" class="form-control mr-4" placeholder="Wpisz nazwe produku">
             </div>
@@ -46,11 +46,14 @@
                   <option value=""></option>
                   <option value="1">Cena rosnąco</option> 
                   <option value="2">Cena malejącą</option>
-              </select>
+              </select> 
            </div>
       </div>
       <div class="heading-box__new-products">
-        <button class="btn btn-primary" type="button" [routerLink]="['/admin/manage-products/add-new']">NOWY PRODUKT</button>
+        <button class="btnn add-new-btn" type="button" [routerLink]="['/admin/manage-products/add-new']">
+          Nowy produkt
+       <img class="btn-icon" src="../../../assets/admin-nav-icons/plus.svg" alt="">
+     </button>
       </div>
   </div>
   <div class="products-list-box">
@@ -64,7 +67,9 @@
           <p class="product-category">{{p.category | titlecase}}</p>
           <p class="product-price">{{p.price}} zł</p>
           <p class="product-storage">{{p.storage}} szt.</p>
-          <button class="btn btn-sm btn-primary" type="button" (click)="edit(p.id)">EDYTUJ</button>
+          <button class="btnn edit-btn" type="button" (click)="edit(p.id)">Edytuj 
+              <img class="btn-icon" src="../../../assets/admin-nav-icons/pencil-edit-button.svg" alt="">
+          </button> 
       </li>
     </ul>
   </div>
