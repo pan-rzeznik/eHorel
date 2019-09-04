@@ -1,10 +1,13 @@
+.row {
+    overflow-x: hidden;
+}
 .router-outlet {
     width: 100vw;
     margin-left: 300px;
     max-height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
-    transition: .3s margin;
+    transition: .3s all;
 }
 
 app-panel-menu {
@@ -48,6 +51,7 @@ app-panel-menu {
     box-shadow: 5px 0 10px rgba(0, 0, 0, 0.26);
 }
 
-.moveBtn {
+
+.router-outlet--active {
     transform: translateX(300px);
 }
