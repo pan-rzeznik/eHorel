@@ -1,11 +1,9 @@
-import { ShoppingCartService } from './../shopping-cart.service';
-import { AuthService } from './../services/auth.service';
+import { ShoppingCartService } from '../../shared/services/shopping-cart.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { ShoppingCard } from '../models/shoppingCard';
-
+import { ShoppingCard } from '../../shared/models/shoppingCard';
 
 
 @Component({

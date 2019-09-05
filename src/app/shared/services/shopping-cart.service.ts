@@ -1,8 +1,7 @@
 import { take, map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { ShoppingCard } from './models/shoppingCard';
-import * as firebase from 'firebase';
+import { ShoppingCard } from '../models/shoppingCard';
 
 
 
@@ -11,17 +10,17 @@ import * as firebase from 'firebase';
 })
 export class ShoppingCartService {
 
-  constructor(private firebase: AngularFirestore) { }
+  constructor(private fire: AngularFirestore) { }
 
   private create() {
-    return this.firebase.collection('carts').add({
+    return this.fire.collection('carts').add({
       create: new Date()
     });
   }
 
   async getCart() {
     const cartId = await this.getOrCreate();
-    const cart = this.firebase.doc(`carts/${cartId}`).collection('items').valueChanges().pipe(
+    const cart = this.fire.doc(`carts/${cartId}`).collection('items').valueChanges().pipe(
       map( c => new ShoppingCard(c))
     );
     return cart;
@@ -47,7 +46,7 @@ export class ShoppingCartService {
 
   async removeProductFromCart(product) {
     const cartId = await this.getOrCreate();
-    this.firebase.collection('carts/' + cartId + '/items').doc(product.product.id).delete();
+    this.fire.collection('carts/' + cartId + '/items').doc(product.product.id).delete();
   }
 
   async removeCart() {
@@ -58,7 +57,7 @@ export class ShoppingCartService {
 
   async addToCart(product, size) {
     const cartId = await this.getOrCreate();
-    const item$ = this.firebase.collection('carts/' + cartId + '/items').doc(product.id);
+    const item$ = this.fire.collection('carts/' + cartId + '/items').doc(product.id);
     item$.get().pipe(take(1)).subscribe( i => {
       if (!i.exists) {
         item$.set({product, amount: {quantity: 1, size}});
@@ -71,10 +70,10 @@ export class ShoppingCartService {
   }
   modifyQuantity(productId, change: number) {
     const cartId = localStorage.getItem('shoppingCart');
-    const item$ = this.firebase.collection('carts/' + cartId + '/items').doc(productId);
+    const item$ = this.fire.collection('carts/' + cartId + '/items').doc(productId);
     item$.get().pipe(take(1)).subscribe( i => {
       if (i.get('amount').quantity === 1 && change === -1) {
-        this.firebase.collection('carts/' + cartId + '/items').doc(productId).delete();
+        this.fire.collection('carts/' + cartId + '/items').doc(productId).delete();
         return;
         }
       item$.update({ 'amount.quantity': +i.get('amount').quantity + change});

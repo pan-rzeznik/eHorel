@@ -1,11 +1,11 @@
-import { ShoppingCartService } from './../shopping-cart.service';
+import { ShoppingCartService } from '../../shared/services/shopping-cart.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { OrderService } from '../order.service';
+import { OrderService } from '../../shared/services/order.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Order } from '../models/order';
+import { Order } from '../../shared/models/order';
 import { Observable } from 'rxjs';
-import { ShoppingCard } from '../models/shoppingCard';
+import { ShoppingCard } from '../../shared/models/shoppingCard';
 
 @Component({
   selector: 'app-order',

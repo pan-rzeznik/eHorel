@@ -1,7 +1,7 @@
 import { ShoppingCartService } from './shopping-cart.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
-import { Order } from './models/order';
+import { Order } from '../models/order';
 
 @Injectable({
   providedIn: 'root'

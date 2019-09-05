@@ -1,4 +1,4 @@
-import { DbService } from './../services/db.service';
+import { DbService } from '../../shared/services/db.service';
 import { Component, OnInit} from '@angular/core';
 
 @Component({

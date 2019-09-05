@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./validation-meassage.component.scss']
 })
 export class ValidationMeassageComponent implements OnInit {
+
   @Input() control: FormControl;
   constructor() { }
 

@@ -1,25 +1,15 @@
-import { ActivatedRoute, Router } from '@angular/router';
-import { Component, AfterContentChecked, OnInit } from '@angular/core';
-import { DbService } from './services/db.service';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterContentChecked{
+export class AppComponent {
   title = 'eHorel';
-  showHead = true;
 
-  constructor(private router: Router) {
-  }
-
-  ngAfterContentChecked() {
-    if (location.href.includes('admin')) {
-      this.showHead = false;
-    } else {
-      this.showHead = true;
-    }
+  constructor() {
   }
 
 }

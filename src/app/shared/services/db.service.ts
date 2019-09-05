@@ -3,10 +3,6 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { ActivatedRouteSnapshot } from '@angular/router';
-import { splitNamespace } from '@angular/core/src/view/util';
-import { Products } from '../models/products.model';
-import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -68,7 +64,7 @@ export class DbService {
     }));
   }
 
- 
+
   getAllToMemory() {
     this.firebase.collection('products').valueChanges().subscribe( res =>  this.products = res);
   }

@@ -15,4 +15,4 @@ export class SingleProductResolver implements Resolve<any> {
        return this.db.getProduct(route.params.id).pipe(first());
     }
 }
- 
+
