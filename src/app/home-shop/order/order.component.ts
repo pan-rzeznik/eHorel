@@ -1,8 +1,8 @@
+import { Router } from '@angular/router';
 import { ShoppingCartService } from '../../shared/services/shopping-cart.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../../shared/services/order.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Order } from '../../shared/models/order';
 import { Observable } from 'rxjs';
 import { ShoppingCard } from '../../shared/models/shoppingCard';
@@ -19,7 +19,8 @@ export class OrderComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private cart: ShoppingCartService,
-              private order: OrderService) { }
+              private order: OrderService,
+              private router: Router) { }
 
   async ngOnInit() {
     this.form = this.fb.group({
@@ -41,6 +42,7 @@ export class OrderComponent implements OnInit {
     this.cart$.subscribe( res => this.items = res);
 }
   makeOrder() {
-    this.order.makeOrder(new Order(this.items, this.form));
+    localStorage.setItem('order', JSON.stringify(new Order(this.items, this.form.value)));
   }
+
 }

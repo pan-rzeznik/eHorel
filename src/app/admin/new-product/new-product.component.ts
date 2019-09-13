@@ -1,3 +1,4 @@
+import { faImages } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomValidators } from '../../shared/validators/customValidator';
 import { DbService } from '../../shared/services/db.service';
@@ -97,4 +98,9 @@ export class NewProductComponent implements OnInit {
     this.db.updateProduct(this.id, this.form.value);
     this.router.navigate(['admin/manage-products']);
   }
+  showInShop() {
+    const category = this.form.get('category').value;
+    this.router.navigate([`/categories/${category}/${this.id}`]);
+  }
+
 }

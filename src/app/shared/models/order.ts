@@ -1,8 +1,21 @@
 import { ShoppingCard } from './shoppingCard';
 
-export class Order {
+interface Product {
+    items: {
+        amount: {
+            quantity: number;
+            size: string;
+        };
+        name: string;
+        category: string;
+        price: number;
+        photo: string;
+        id: string;
+    };
+}
 
-    constructor(public cart: ShoppingCard, public form)  {} 
+export class Order {
+    constructor(public cart: ShoppingCard, public form)  {}
 
     get totalMoney() {
        let count = 0;

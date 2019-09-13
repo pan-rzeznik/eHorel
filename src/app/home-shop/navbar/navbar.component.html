@@ -17,8 +17,10 @@
         <div class="item-counter">
             <span *ngIf="items$ | async as items">{{ items.totalCountOfProduct }}</span>
         </div>
-    </div>
+    </div> 
+    <button class="toggle" *ngIf="false">toggler</button>
   </div>
+  
   <div class="navbar-list">
     <ul> 
       <li class="navbar-list__item"> 

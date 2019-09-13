@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from 'src/app/shared/models/order';
 
 @Component({
   selector: 'app-summary',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent implements OnInit {
-
+  order: Order;
   constructor() { }
 
   ngOnInit() {
+    this.order = JSON.parse(localStorage.getItem('order'));
   }
 
 }
