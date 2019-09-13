@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { HomeShopModule } from './home-shop/home-shop.module';
 import { AdminModule } from './admin/admin.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,15 +13,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
-import { LoggedOutComponent } from './logged-out/logged-out.component';
-import { LoginComponent } from './admin/login/login.component';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    LoggedOutComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +31,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     SharedModule,
     HomeShopModule,
+    AuthModule,
     AdminModule
   ],
   providers: [

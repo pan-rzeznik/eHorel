@@ -13,17 +13,6 @@ export class DbService {
 
   constructor(private firebase: AngularFirestore) { }
 
-  getDressys() {
-    return this.firebase.collection('sukienki').snapshotChanges().pipe(
-      map(actions => {
-        return actions.map( a => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          return { id, ...data };
-        });
-      })
-    );
-  }
 
   createNewProduct(product: Product) {
     let p: Product;
@@ -65,9 +54,6 @@ export class DbService {
   }
 
 
-  getAllToMemory() {
-    this.firebase.collection('products').valueChanges().subscribe( res =>  this.products = res);
-  }
   getProductsByCategory(category): Observable<any> {
     return this.firebase.collection('products', ref => ref.where('category', '==', category)).snapshotChanges()
     .pipe(map(snaps => {

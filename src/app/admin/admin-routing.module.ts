@@ -1,23 +1,22 @@
+import { LggedIntGuard } from './../shared/lgged-in.guard';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { OrdersComponent } from './orders/orders.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
 import { ManageProductsComponent } from './manage-products/manage-products.component';
+import { AdminGuard } from './admin.guard';
+
 
 const routes: Routes = [
   {
     path: 'admin',
     component: AdminPanelComponent,
+    canActivate: [LggedIntGuard, AdminGuard],
     children: [
       {
-        path: 'login',
-        component: LoginComponent
-      },
-      {
         path: 'manage-products/add-new',
-      component: NewProductComponent
+        component: NewProductComponent
       },
       {
         path: 'manage-products/:id',
@@ -36,7 +35,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AdminRoutingModule { }

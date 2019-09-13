@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <h1>Zarejestruj się</h1>
+  <h2>Uzpełnij formularz byśmy mogli utworzyć 
+    profil specjalnie dla Ciebie</h2>
+  <form [formGroup]="form">   
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input formControlName="email" type="email" class="form-control" placeholder="Wpisz swój adres email...">
+    </div>
+    <app-validation-meassage [control]="form.get('email')"></app-validation-meassage> 
+    <div class="form-group">
+      <label for="Password">Hasło</label>
+      <input formControlName="password" type="password" class="form-control" placeholder="Wpisz swoje hasło...">
+    </div>
+    <app-validation-meassage [control]="form.get('password')"></app-validation-meassage> 
+    <div class="form-group">
+      <label for="Password">Potwierdź hasło</label>
+      <input appConfirmValue="password" formControlName="confirmPassword" type="password" class="form-control" placeholder="Wpisz swoje hasło jeszcze raz...">
+    </div>
+    <app-validation-meassage [control]="form.get('confirmPassword')"></app-validation-meassage> 
+  
+    <button class="btnn btn-submit" (click)="createNewUserWithEmail()" [disabled]="form.invalid" >Zarejestruj się</button>
+  </form>
+  <button class="btnn btn-return" type="button" [routerLink]="['../']">Powrót</button>
+</div>
+  
+<pre>{{form.value | json}}</pre> 

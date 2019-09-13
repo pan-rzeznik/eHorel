@@ -45,7 +45,7 @@
               <button class="btn btn-sm btn-secondary" (click)="addOne(p)">+</button>
             </div>
           </td>
-          <td>{{ p.amount.quantity * p.product.price }} zł</td>
+          <td>{{ p.amount.quantity * p.product.price | number:'1.2' }} zł</td>
           <td><button class="remove-btn" type="button" (click)="removeProduct(p)">X</button></td>
         </tr>
       </tbody>

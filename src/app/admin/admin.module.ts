@@ -21,15 +21,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     AdminRoutingModule,
     SharedModule,
-    CommonModule
-  ],
-  exports: [
-    AdminPanelComponent,
-    ManageProductsComponent,
-    OrdersComponent,
-    NewProductComponent,
-    ProductsListComponent,
-    PanelMenuComponent
+    CommonModule,
   ]
 })
 export class AdminModule { }

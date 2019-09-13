@@ -1,4 +1,3 @@
-import { AdminModule } from './../admin/admin.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -18,8 +17,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { ShopRoutingModule } from './shop-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ValidationMeassageComponent } from '../shared/validation-meassage/validation-meassage.component';
 import { SharedModule } from '../shared/shared.module';
+import { ShopComponent } from './shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +34,8 @@ import { SharedModule } from '../shared/shared.module';
     SummaryComponent,
     ProductGalleryComponent,
     SingleProductComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ShopComponent
   ],
   imports: [
     CommonModule,
@@ -45,21 +45,6 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     SharedModule
-  ],
-  exports: [
-    NavbarComponent,
-    NewsComponent,
-    CategoriesComponent,
-    ContactComponent,
-    HomeComponent,
-    HeaderBilboardComponent,
-    ProductFilterComponent,
-    ShoppingCartComponent,
-    OrderComponent,
-    SummaryComponent,
-    ProductGalleryComponent,
-    SingleProductComponent,
-    ProductCardComponent
   ]
 })
 export class HomeShopModule { }

@@ -9,28 +9,26 @@
     overflow-y: scroll;
     overflow-x: hidden;
     transition: .3s all;
+
+    @media(max-width: 1170px) {
+        margin-left: 0;
+    }
 }
 
 app-panel-menu {
     position: absolute;
     z-index: 1000;
     transition: .3s transform;
+
+    @media(max-width: 1170px) {
+        transform: translateX(-500px);
+    }
 }
 
 .hamburger-menu {
     display: none;
-}
 
-@media(max-width: 1170px) {
-    .router-outlet {
-        margin-left: 0;
-    }
-    
-    app-panel-menu {
-        transform: translateX(-500px);
-    }
-
-    .hamburger-menu {
+    @media(max-width: 1170px) {
         display: inline-block;
         position: absolute;
         left: 30px;

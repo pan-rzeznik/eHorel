@@ -1,27 +1,113 @@
-.nav-item {
-    margin: 0 15px;
-}
+.navbar {
+  width: 100vw;
+  max-width: 100%;
+  display: grid;
+  grid-template-rows: 100px 50px;
+  grid-row-gap: 20px;
+  align-items: stretch;
+  justify-content: center;
+  overflow-x: hidden;
 
-.panel {
-    position: absolute;
-    right: 50px;
-}
+  .navbar-header-section {
+    max-height: 100px;
+    grid-row: 1/2;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(50px, auto) 300px minmax(50px, auto);
+    grid-column-gap: 50px;
+    justify-items: center;
+    align-items: center;
+    box-sizing: border-box;
 
-@media (max-width: 992px) {
-    .collapse.navbar-collapse {
-        justify-content: flex-start !important;
+    &__sign-in {
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      position: relative;
+      padding: 10px;
+
+      .profile-menu {
+          display: none;
+          position: absolute;
+          width: 150%; 
+          top: 20px;
+          left: 0; 
+          z-index: 1100;
+          list-style: none;
+          padding: 20px 15px;
+          margin-top: 20px;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.178);
+          background-color: white;
+          border-radius: 0 0 5px 5px;
+
+          &:hover {
+              display: block;
+          }
+      }
+
+      &:hover .profile-menu {
+          display: block;
+      }
     }
-    .contact {
-        position: relative;
-        right: unset;
+
+    &__logo {
+      cursor: pointer;
     }
+
+    &__shoping-cart {
+      position: relative;
+      cursor: pointer;
+
+      .item-counter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2px;
+        min-width: 25px;
+        position: absolute;
+        top: -10px;
+        right: -20px;
+        background-color: white;
+        border: 1px solid #1f1f1f;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .navbar-list {
+      box-sizing: border-box;
+      max-width: 100%;
+    width: 99vw;
+    grid-row: 2/3;
+    background-color: #F8F8F8;
+    align-self: center;
+
+    ul {
+      height: 50px;
+      padding: 0;
+      margin: auto 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+    }
+
+    &__item {
+      padding: 5px 25px;
+
+      &-link {
+        color: #707070;
+        text-transform: uppercase;
+      }
+
+    
+    }
+  }
+  .active2 {
+    font-weight: 500;
+    color: #1f1f1f;
+}
 }
 
-.nav-link {
-    transform-origin: right center;
-}
-
-.shopping-cart {
-    position: absolute;
-    right: 20px;
-}

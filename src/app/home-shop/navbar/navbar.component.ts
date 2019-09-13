@@ -13,7 +13,6 @@ import { ShoppingCard } from '../../shared/models/shoppingCard';
 })
 export class NavbarComponent implements OnInit {
   currentUser;
-  isCollapsed = true;
   items$: Observable<ShoppingCard>;
   constructor(private auth: AuthService,
               private router: Router,
@@ -22,6 +21,10 @@ export class NavbarComponent implements OnInit {
   async ngOnInit() {
     this.auth.currentUser().subscribe(res => this.currentUser = res);
     this.items$ = await this.shoppingCart.getCart();
+    }
+
+    logout() {
+      this.auth.logoutUser();
     }
 }
 

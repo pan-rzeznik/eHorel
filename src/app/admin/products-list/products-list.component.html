@@ -1,34 +1,11 @@
-<!-- <table class="table w-100">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nazwa produktu</th>
-      <th scope="col">Kategoria</th>
-      <th scope="col">Cena</th>
-      <th scope="col">W magazynie</th>
-      <th scope="col">Edycja</th>
-    </tr>
-  </thead>
-  <tbody class="w-100">
-    <tr *ngFor="let p of products | async; let i = index ">
-      <th scope="row">{{i + 1}}</th>
-      <td class="title">
-        <img [src]="p.photos[0]" class="product-img"> {{p.name}}</td>
-      <td >{{p.category | titlecase}}</td>
-      <td>{{p.price}}</td>
-      <td>{{p.storage}}</td>
-      <td><button class="btn btn-primary" type="button" (click)="edit(p.id)">Edytuj</button></td>
-    </tr>
-  </tbody>
-</table>    -->
 <section class="products">
     <h1>Produkty</h1>
   <div class="heading-box">
       <div class="heading-box__filtering">
           <div class="heading-box__filtering__search form-group d-flex align-items-center">
-              <label for="name" class="mr-4">Szukaj</label>
+              <label for="name" class="mr-4">Szukaj</label>  
               <input type="text" class="form-control mr-4" placeholder="Wpisz nazwe produku">
-            </div>
+            </div>  
            <div class="heading-box__filtering__category form-group d-flex align-items-center">
               <label for="category" class="mr-4">Kategoria</label>
               <select class="form-control w-75 mr-4">
@@ -58,7 +35,7 @@
   </div>
   <div class="products-list-box">
     <ul>
-      <li *ngFor="let p of products | async " class="products-list-box__item">
+      <li *ngFor="let p of products | async" class="products-list-box__item">
       
         <div class="products-list-box__item-img">
           <img [src]="p.photos[0]" alt="">

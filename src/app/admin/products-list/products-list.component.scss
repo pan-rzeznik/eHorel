@@ -10,18 +10,6 @@
         margin-bottom: 30px;
     }
 
-    .btnn {
-        display: flex;
-        border-radius: 5px;
-        font-size: .8rem;
-        font-weight: 500;
-        border: none;
-        color: white;
-        vertical-align: middle;
-
-       
-    }
-
     .add-new-btn {
         white-space: nowrap;
         background-color: #26C500ed;
@@ -59,8 +47,35 @@
             grid-template-columns: 3fr 2fr 1.5fr;
             grid-column-gap: 3vw;
             margin-right: auto;
+
+            @media(max-width: 805px) {
+
+                display: grid;
+                grid-template-columns: 1.25fr 1fr;
+                grid-column-gap: 5px;
+                justify-items: stretch;
+                margin-left: 1.5em;
+                margin-right: 0;
+
+                &__search {
+                    grid-column: 1/3;
+                }
+            }   
         }
 
+        @media(max-width: 805px) {
+            width: 100%;
+            margin: 50px 0;
+            display: flex;
+            flex-direction: column-reverse;  
+
+            &__new-products {
+                margin-bottom: 40px;
+               display: flex;
+               justify-content: center;
+    
+               }
+        }
       
  
     }  
@@ -107,49 +122,12 @@
                 border-radius: 3px;
             }
            }
-        }
-    }
-}
 
-@media(max-width: 805px) {
-    .products {
 
-        .heading-box {
-        width: 100%;
-        margin: 50px 0;
-        display: flex;
-        flex-direction: column-reverse; 
-         
-    
-            &__filtering {
-                display: grid;
-                grid-template-columns: 1.25fr 1fr;
-                grid-column-gap: 5px;
-                justify-items: stretch;
-                margin-left: 1.5em;
-                margin-right: 0;
+           @media(max-width: 805px) {
+            grid-template-columns: 50px 3fr 2fr  100px; 
 
-                &__search {
-                    grid-column: 1/3;
-                }
-            }
-    
-           &__new-products {
-            margin-bottom: 40px;
-           display: flex;
-           justify-content: center;
-
-           }
-     
-        }  
-    
-        .products-list-box { 
-    
-            &__item {
-              
-               grid-template-columns: 50px 3fr 2fr  100px; 
-            
-               .product-name {
+                .product-name {
                 padding-left: 20px;
                 }
 
@@ -159,8 +137,10 @@
                 .product-category {
                     display: none;
                 }
-    
-            }
+           }
+
+
         }
     }
 }
+

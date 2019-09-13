@@ -19,3 +19,21 @@ h2 {
     font-weight: 400;
     font-size: 2.1rem;
 }
+
+
+.btnn {
+    display: flex;
+    border-radius: 5px;
+    font-size: .8rem;
+    font-weight: 500;
+    border: none;
+    color: white;
+    vertical-align: middle; 
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    box-shadow: 0 0 0 30px white inset !important;
+}

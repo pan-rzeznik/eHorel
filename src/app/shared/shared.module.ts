@@ -1,4 +1,4 @@
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './services/auth.service';
@@ -8,14 +8,18 @@ import { SingleProductResolver } from './models/singleProduct.resolver';
 import { OrderService } from './services/order.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { ValidationMeassageComponent } from './validation-meassage/validation-meassage.component';
+import { ConfirmValueDirective } from './directive/confirm-value.directive';
+
 
 @NgModule({
   declarations: [
-    ValidationMeassageComponent
+    ValidationMeassageComponent,
+    ConfirmValueDirective,
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     AuthService,
@@ -27,7 +31,9 @@ import { ValidationMeassageComponent } from './validation-meassage/validation-me
   ],
   exports: [
     ValidationMeassageComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    ConfirmValueDirective,
   ]
 })
 export class SharedModule { }
