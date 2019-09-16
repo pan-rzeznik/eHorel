@@ -1,6 +1,6 @@
 import { ShopComponent } from './shop/shop.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SummaryComponent } from './summary/summary.component';
 import { NewsComponent } from './news/news.component';
@@ -11,6 +11,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { ProductsResolver } from '../shared/models/products.resoler';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { OrderComponent } from './order/order.component';
+import { NoOrderGuard } from '../shared/no-order.guard';
 
 const routes: Routes = [
   {
@@ -53,16 +54,13 @@ const routes: Routes = [
       },
       {
         path: 'zamowienie',
-        component: OrderComponent
+        component: OrderComponent,
       },
       {
         path: 'podsumowanie',
-        component: SummaryComponent
-      },
-      {
-        path: 'podsumowanie',
-        component: SummaryComponent
-      },
+        component: SummaryComponent,
+        canActivate: [NoOrderGuard]
+      }
     ]
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/shared/models/order';
+import { OrderService } from 'src/app/shared/services/order.service';
 
 @Component({
   selector: 'app-summary',
@@ -8,10 +9,13 @@ import { Order } from 'src/app/shared/models/order';
 })
 export class SummaryComponent implements OnInit {
   order: Order;
-  constructor() { }
+  constructor(private orderService: OrderService) { }
 
   ngOnInit() {
     this.order = JSON.parse(localStorage.getItem('order'));
   }
 
+  tets() {
+    this.orderService.makeOrder(this.order);
+  }
 }

@@ -17,6 +17,7 @@ export class ShoppingCartComponent implements OnInit {
     products.items.forEach(element => {
       this.removeProduct(element);
     });
+    localStorage.clear();
   }
   removeProduct(product) {
     this.sc.removeProductFromCart(product);

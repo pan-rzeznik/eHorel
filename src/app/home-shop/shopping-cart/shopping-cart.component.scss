@@ -3,6 +3,7 @@
     justify-content: space-between;
 }
 
+
 thead {
     border: none;
     
@@ -16,6 +17,10 @@ thead {
         border-radius: 10px;
         font-weight: 500;
     }
+
+    @media(max-width: 765px) {
+        display: none;
+    }
 }
 
 table td {
@@ -26,6 +31,35 @@ table td {
 table th {
     border: none;
     vertical-align: middle;
+
+    @media(max-width: 765px) {
+        display: none;
+    }
+}
+
+tbody {
+
+    @media(max-width: 765px) {
+        
+        tr {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+            margin: 10px 20px;
+        }
+
+        td {
+            width: 100%;
+            
+        }
+    }
+   
+}
+
+tfoot {
+    @media(max-width: 765px) {
+       display: none;
+    }
 }
 
 .product-img {
@@ -67,6 +101,11 @@ table th {
 
     &:hover {
         transform: scale(1.2) rotate(180deg);
+    }
+
+    @media(max-width: 765px) {
+        
+        display: none;
     }
 }
 

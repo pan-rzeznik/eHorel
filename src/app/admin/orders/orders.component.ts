@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from 'src/app/shared/services/order.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-orders',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent implements OnInit {
+  orders;
 
-  constructor() { }
+  constructor(private orderService: OrderService) { }
 
   ngOnInit() {
+    this.orderService.getAllOrders().pipe(first()).subscribe(res => this.orders = res);
   }
 
 }

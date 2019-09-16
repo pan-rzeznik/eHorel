@@ -12,10 +12,14 @@ export class OrderService {
 
   makeOrder(order: Order) {
     this.db.collection('orders').add({
-     orderPerson: order.form.value,
+     orderPerson: order.form,
      products: order.cart.items,
-     totalPrice: order.totalMoney
+     total: order.totalMoney
     });
     this.cartService.removeCart();
+  }
+
+  getAllOrders() {
+    return this.db.collection('orders').valueChanges();
   }
 }
