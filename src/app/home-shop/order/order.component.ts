@@ -28,15 +28,29 @@ export class OrderComponent implements OnInit {
         surname: ['', Validators.required],
         city: ['', Validators.required],
         street: ['', Validators.required],
-        postCode: ['', Validators.required],
-        phone: ['', Validators.required],
-        mail: ['', Validators.required],
+        postCode: ['', [
+          Validators.required,
+          Validators.min(10000),
+          Validators.max(99999)]
+          ],
+        phone: ['', [
+          Validators.required,
+          Validators.min(10000000000),
+          Validators.max(999999999999)
+        ]
+        ],
+        mail: ['', [
+          Validators.required,
+          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+        ]]
       }),
       paymants: this.fb.group ({
         paymentType : ['', Validators.required],
         delivery : ['', Validators.required]
       })
     });
+
+    console.log(this.form);
     this.cart$ = await this.cart.getCart();
     this.cart$.subscribe( res => this.items = res);
 

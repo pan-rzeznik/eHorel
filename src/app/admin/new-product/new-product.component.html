@@ -97,7 +97,7 @@
         (keyup.enter)="newImgLink(img)">
       <ul class="img-list">
         <li *ngFor="let p of form.get('photos').controls; let i = index" class="img-list__item">
-          <img [src]="p.value" alt="">
+          <img [src]="p.value" alt="Twoje zdjęcie jest nieprawidłowe">
           <button type="button" class="close-btn" aria-label="Close" (click)="removePhoto(i)">
             <span aria-hidden="true">&times;</span>
           </button>

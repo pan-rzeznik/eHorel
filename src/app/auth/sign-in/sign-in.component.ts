@@ -25,7 +25,7 @@ export class SignInComponent implements OnInit {
 
   login() {
     this.auth.loginUser(this.form.get('email').value, this.form.get('password').value).then(() => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/admin']);
     }).catch( error => {
       this.error = error.message;
     });

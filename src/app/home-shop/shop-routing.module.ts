@@ -13,6 +13,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { OrderComponent } from './order/order.component';
 import { NoOrderGuard } from '../shared/no-order.guard';
 import { ThanksForOrderComponent } from './thanks-for-order/thanks-for-order.component';
+import { NotFoundComponent } from '../shared/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -47,7 +48,7 @@ const routes: Routes = [
       },
       {
         path: 'categories',
-        component: CategoriesComponent
+        redirectTo: 'news'
       },
       {
         path: 'koszyk',
@@ -65,6 +66,10 @@ const routes: Routes = [
       {
         path: 'end',
         component: ThanksForOrderComponent,
+      },
+      {
+        path: '**',
+        component: NotFoundComponent
       }
     ]
   }

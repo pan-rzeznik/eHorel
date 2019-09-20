@@ -22,6 +22,7 @@ import { ShopComponent } from './shop/shop.component';
 import { ThanksForOrderComponent } from './thanks-for-order/thanks-for-order.component';
 import { FooterComponent } from './footer/footer.component';
 
+
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -39,7 +40,7 @@ import { FooterComponent } from './footer/footer.component';
     ProductCardComponent,
     ShopComponent,
     ThanksForOrderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     CommonModule,
