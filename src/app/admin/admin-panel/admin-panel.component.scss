@@ -1,0 +1,57 @@
+.row {
+    overflow-x: hidden;
+}
+.router-outlet {
+    width: 100vw;
+    margin-left: 300px;
+    min-height: 100px;
+    max-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transition: .3s all;
+
+    @media(max-width: 1170px) {
+        margin-left: 0;
+    }
+}
+
+app-panel-menu {
+    position: absolute;
+    z-index: 2000;
+    transition: .3s transform;
+
+    @media(max-width: 1170px) {
+        transform: translateX(-500px);
+    }
+}
+
+.hamburger-menu {
+    display: none;
+
+    @media(max-width: 1170px) {
+        display: inline-block;
+        position: absolute;
+        left: 20px;
+        top: 8px;
+        cursor: pointer;
+        z-index: 1300;
+        transition: .3s transform;
+
+        
+
+        &__img {
+            width: 35px;
+            height: 45px;
+        }
+    }
+}
+
+.visible {
+    transform: translateX(0);
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.26);
+}
+
+
+.router-outlet--active {
+    transform: translateX(300px);
+}

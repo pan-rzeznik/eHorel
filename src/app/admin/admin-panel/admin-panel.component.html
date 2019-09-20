@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    <div class="row">
+       <app-panel-menu [class.visible]="sideNavVisibility"></app-panel-menu> 
+        <div class="router-outlet" [class.router-outlet--active]="sideNavVisibility">
+            <div class="hamburger-menu" [class.moveBtn]="sideNavVisibility" (click)="showMenu()">
+                <img class="hamburger-menu__img" src="../../../assets/admin-nav-icons/menu.svg" alt="">
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+

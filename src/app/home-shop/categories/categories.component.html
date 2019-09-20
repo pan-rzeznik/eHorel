@@ -1,0 +1,22 @@
+<div class="container">
+  <div>
+    <h1 class=" px-3 py-3 pt-md-5 mx-auto text-center">{{category | titlecase}}</h1>
+    <p class="lead text-center">Quickly build an effective pricing table for your potential customers with this
+      Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+  </div>
+  <hr />
+  <div class="col">
+    <app-product-filter (sortASC)='sortASC()' (sortDESC)="sortDESC()">
+    </app-product-filter>
+  </div>
+
+  <div class="row">
+    <div class="d-flex flex-wrap justify-content-center">
+      <ng-container class="d-flex flex-wrap" *ngFor="let item of filteredProduct">
+        <app-product-card  class="productCard" [product]="item" [routerLink]="['/categories', item.category, item.id]">
+        </app-product-card>
+      </ng-container>
+    </div>
+  </div>
+
+</div>

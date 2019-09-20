@@ -1,0 +1,68 @@
+.sizes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    &__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px; 
+    min-width: 40px;
+    padding: .5rem;
+    background-color: #313131;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    font-size: .9rem;
+    transition: 0.3s border-color;
+    cursor: pointer;
+
+        &:hover {
+           border-color: #FFCC00;
+        }
+    }
+} 
+
+.avalibe-sizes {
+    font-size: .9rem;
+    font-weight: 600;
+    letter-spacing: 2.1px;
+}
+
+
+
+.add-to-cart {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: max-content max-content;
+
+    .price-section {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 90;
+        border: 1px solid #313131;
+        border-radius: 10px;
+        padding: 0 2rem 0 2.5rem; 
+        margin-left: -.5rem;
+    }
+
+    .btn-section {
+        background-color: white;
+        border-radius: 5px;
+        position: relative;
+        z-index: 100;
+    }
+}
+
+
+.active {
+    border-color: #FFCC00;
+}
+
+small {
+    color: red;
+    font-weight: 500;
+}

@@ -1,0 +1,14 @@
+.pricing-header {
+    text-align: center;
+
+    @media(max-width: 500px) {
+        h1 {
+            font-size: 40px;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 30px;
+        }
+    }
+}

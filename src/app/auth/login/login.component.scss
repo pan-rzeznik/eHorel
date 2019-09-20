@@ -1,0 +1,31 @@
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(241,241,241);
+    background: linear-gradient(65deg, rgba(241,241,241,1) 60%, rgb(221, 221, 221) 0);
+} 
+
+
+
+.login-box {
+    display: grid;
+    grid-template-columns: 435px 435px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.842);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.192);
+
+    @media(max-width:900px) {
+        grid-template-columns: 435px;
+
+        &__img {
+            display: none;
+        }
+    }
+
+    @media(max-width:450px) {
+        grid-template-columns: 100%;
+        margin: 0 15px;
+    }
+}

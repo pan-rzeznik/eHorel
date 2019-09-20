@@ -1,0 +1,46 @@
+.home-admin {
+    position: relative;
+    padding: 70px 50px;
+    min-height: 100vh;
+
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        margin-top: 20px;
+    }
+
+    h3 {
+        text-align: center;
+        font-size: 20px;
+        margin: 20px 0 40px 0;
+    }
+}
+
+.info-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+
+    &__box {
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-align: center;
+
+        p {
+            font-size: 50px;
+        }
+
+        h4 {
+            font-size: 18px;
+        }
+
+    }
+}

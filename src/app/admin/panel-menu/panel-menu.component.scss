@@ -1,0 +1,118 @@
+.side-nav {
+    width: 300px;
+    background-color: #313131;
+    height: 100vh;
+    color: white;
+    
+
+    .side-nav__personal-info-box {
+        background-color: #202020;
+
+        &__content {
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            grid-column-gap: 10px;
+            align-items: center;
+            padding: 20px;
+
+            .admin-img-box {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 5px;
+                grid-column: 1/2;
+                width: 60px;
+                height: 60px;
+                border-radius: 100px;
+                background-color: #3B3B3B;
+            }
+
+            .admin-text-box {
+                padding: 5px;
+
+                h2 {
+                    font-weight: 500;
+                    font-size: 1rem;
+                   margin-bottom: 4px;
+                    color: #F3F3F3;
+                }
+
+                h3 {
+                    font-weight: 400;
+                    font-size: .7rem;
+                    margin: 0;
+                    color: #B4B4B4;
+                }
+
+                
+            }
+        }
+    }
+
+    .main-nav-box {
+        height: calc(100vh - 100px);
+        
+        .nav-items-box {
+            height: 100%;
+            ul {
+                height: 100%;
+                display: grid;
+                grid-template-rows: repeat(4, max-content) 1fr;
+                align-items: flex-end;
+                list-style: none;
+                margin: 0;
+                padding: 0; 
+            }
+
+            &__item {
+                padding: 10px 20px; 
+                display: grid;
+                grid-template-columns: 1fr 6fr;
+                grid-column-gap: 15px;
+                align-items: center;
+                transition: .4s border;
+                transform-origin: right center;
+                cursor: pointer;
+                border-top: 1px solid transparent;
+                border-bottom: 1px solid transparent;
+
+                &:hover {
+                    border-top: 1px solid rgb(78, 78, 78);
+                    border-bottom: 1px solid rgb(78, 78, 78);
+                }
+                
+
+                &:active, :link {
+                    background-color: rgb(78, 78, 78);
+                    outline: none;
+                }
+
+                &-img-box {
+                    grid-column: 1/2;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 35px;
+                    width: 35px;
+                    padding: 8px;
+                    border-radius: 5px;
+                    background-color: #2A2A2A;
+                }
+
+                a {
+                    grid-column: 2/3;
+                    font-weight: 500;
+                    font-size: .8rem;
+                }
+            }
+        }
+
+        
+    }
+}
+
+.active {
+    background-color: rgb(78, 78, 78);
+    outline: none;
+}
+

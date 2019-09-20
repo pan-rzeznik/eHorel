@@ -1,0 +1,46 @@
+<nav class="navbar">
+  <div class="navbar-header-section" >
+    <div class="navbar-header-section__sign-in" [routerLink]="['/login']" *ngIf="!currentUser">
+        <img src="../../../assets/navbar/sign-in.svg" alt="Sign-in icon">
+    </div>
+    <div class="navbar-header-section__sign-in" *ngIf="currentUser">
+      <Span [routerLink]="['/admin']">Twoje konto</Span>
+    </div>
+    <div class="navbar-header-section__logo" [routerLink]="['/']">
+        <img src="../../../assets/navbar/Horel-logo.svg" alt="Shop's logo">
+      </div>
+    <div class="navbar-header-section__shoping-cart" [routerLink]="['/koszyk']">
+        <img src="../../../assets/navbar/shopping-cart-icon.svg" alt="Shopping-cart icon">
+        <div class="item-counter">
+            <span *ngIf="items$ | async as items">{{ items.totalCountOfProduct }}</span>
+        </div>
+    </div> 
+    <button class="toggle" (click)="showMenu()">
+      <img src="./../../../assets/navbar/h-menu.svg" alt="">
+    </button>
+   
+  </div>
+  
+  <div class="navbar-list" [class.navbar-list--open]="isActive"> 
+    <ul> 
+      <li class="navbar-list__item"> 
+        <a class="navbar-list__item-link" [routerLink]="['/news']" routerLinkActive="active" (click)="showMenu()">Nowości</a>
+      </li>
+      <li class="navbar-list__item">
+        <a class="navbar-list__item-link" [routerLink]="['/categories', 'sukienki']" routerLinkActive="active2" (click)="showMenu()">Sukienki</a>
+      </li>
+      <li class="navbar-list__item">
+        <a class="navbar-list__item-link" [routerLink]="['/categories', 'bluzki']" routerLinkActive="active2" (click)="showMenu()" >Bluzki</a> 
+      </li>
+      <li class="navbar-list__item">
+        <a class="navbar-list__item-link" [routerLink]="['/categories', 'kombinezony']" routerLinkActive="active2" (click)="showMenu()">Kombinezony</a>
+      </li>
+      <li class="navbar-list__item">
+        <a class="navbar-list__item-link" [routerLink]="['/categories', 'spodnie']" routerLinkActive="active2" (click)="showMenu()">Spodnie</a>
+      </li>
+      <li class="navbar-list__item">
+        <a class="navbar-list__item-link" [routerLink]="['/categories', 'dodatki']" routerLinkActive="active2" (click)="showMenu()">Dodatki</a>
+      </li>
+    </ul> 
+  </div>
+</nav>

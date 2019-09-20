@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="pricing-header">
+    <h1>Uzpełnij formularz</h1>
+    <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example.
+      It’s built with default Bootstrap components and utilities with little customization.</p>
+  </div>
+  <h2 class="text-center">Dane kontaktowe</h2>
+  <p class="text-center lead">Te dane pozwolą nam wysłać zamówiony przez Ciebie towar w dobre miejsce</p>
+  <form [formGroup]="form">
+    <div class="row p-3 my-5" formGroupName="contact">
+      <div class="col-md-6 col-sm-12">
+        <div class="form-group"> 
+          <label for="name">Imie</label>
+          <input formControlName="name" type="text" class="form-control" placeholder="Imie" id="name">
+          <app-validation-meassage [control]="form.get(['contact', 'name'])"></app-validation-meassage>
+        </div>
+        <div class="form-group">
+          <label for="price">Nazwisko</label>
+          <input formControlName="surname" type="text" class="form-control" placeholder="Nazwisko">
+          <app-validation-meassage [control]="form.get(['contact', 'surname'])"></app-validation-meassage>
+        </div>
+        <div class="form-group">
+          <label for="price">Ulica i numer</label>
+          <input formControlName="street" type="text" class="form-control" placeholder="Miasto">
+          <app-validation-meassage [control]="form.get(['contact', 'street'])"></app-validation-meassage>
+      </div>
+        <div class="form-group">
+          <label for="price">Kod pocztowy</label>
+          <input formControlName="postCode" type="number" class="form-control" placeholder="Kod pocztowy">
+          <app-validation-meassage [control]="form.get(['contact', 'postCode'])"></app-validation-meassage>
+        </div>
+        <div class="form-group">
+            <label for="price">Miasto</label>
+            <input formControlName="city" type="text" class="form-control" placeholder="Miasto">
+            <app-validation-meassage [control]="form.get(['contact', 'city'])"></app-validation-meassage>
+          </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="price">Telefon</label>
+          <input formControlName="phone" type="number" class="form-control" placeholder="Telefon">
+          <app-validation-meassage [control]="form.get(['contact', 'phone'])"></app-validation-meassage>
+        </div>
+        <div class="form-group">
+          <label for="price">Adres e-mail</label>
+          <input formControlName="mail" type="text" class="form-control" placeholder="Adres e-mail">
+          <app-validation-meassage [control]="form.get(['contact', 'mail'])"></app-validation-meassage>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-center">Dostawa i płatności</h2>
+    <p class="text-center lead">Wybierz dogodną dla Ciebie płatność oraz sposób dostarczenia przesyłki</p>
+  <form [formGroup]="form">
+    <div formGroupName="paymants" class="row my-5">
+    <div class="form-group col-md-4 col-sm-12">
+      <label for="category">Sposób płatności</label>
+      <select formControlName="paymentType" class="form-control">
+        <option></option>
+        <option>Płatność za pobraniem</option>
+        <option>Przedpłata</option>
+      </select>
+      <app-validation-meassage [control]="form.get(['paymants', 'paymentType'])"></app-validation-meassage>
+    </div>
+    <div *ngIf="form.get(['paymants', 'paymentType']).valid" class="form-group col">
+        <label for="category">Sposób dostawy</label>
+        <select  formControlName="delivery" class="form-control">
+          <option></option>
+          <ng-container *ngIf="form.get(['paymants', 'paymentType']).value === 'Przedpłata'">
+              <option>Kurier DPD - 25zł</option>
+              <option>Poczta Polska - 18zł</option>
+          </ng-container>
+          <ng-container *ngIf="form.get(['paymants', 'paymentType']).value !== 'Przedpłata'">
+              <option>Kurier DPD - 35zł</option>
+              <option>Poczta Polska - 28zł</option>
+          </ng-container>
+        </select>
+        <app-validation-meassage [control]="form.get(['paymants', 'delivery'])"></app-validation-meassage>
+    </div>
+  </div>
+  </form>
+  <button class="btn btn-primary my-4" type="button" [disabled]="form.invalid"  [routerLink]="['/podsumowanie']" (click)="makeOrder()">Podsumowanie</button>

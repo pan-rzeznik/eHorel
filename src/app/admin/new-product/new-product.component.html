@@ -1,0 +1,110 @@
+<form [formGroup]="form">
+  <section class="new-product-box">
+      <nav class="section-nav">
+          <h1 class="section-title">Zarządzaj produktem</h1>
+        </nav>
+    <div class="form-section">
+      <h2 *ngIf="!id">Nowy produkt</h2>
+      <h2 *ngIf="id">Edytuj produkt</h2>
+      <h2 *ngIf="id" class="link-to-shop" (click)="showInShop()">Zobacz w sklepie</h2> 
+      <div class="basic-information">
+        <div class="form-group basic-information__name">
+          <label for="name">Nazwa</label>
+          <input formControlName="name" type="text" class="form-control" placeholder="Nazwa produktu" id="name">
+          <app-validation-meassage [control]="form.get('name')"></app-validation-meassage>
+        </div>
+        <div class="form-group basic-information__category">
+          <label for="category">Kategoria</label>
+          <select formControlName="category" class="form-control" id="exampleCheck1">
+            <option *ngFor="let category of categories" [value]="category">{{ category | titlecase  }}</option>
+          </select>
+          <app-validation-meassage [control]="form.get('category')"></app-validation-meassage>
+        </div>
+        <div class="form-group basic-information__price">
+          <label for="price">Cena</label>
+          <input formControlName="price" type="number" class="form-control" placeholder="Cena produktu">
+          <app-validation-meassage [control]="form.get('price')">Cena</app-validation-meassage>
+        </div>
+        <div class="form-group basic-information__description">
+          <label for="description">Opis</label>
+          <textarea formControlName="description" type="text" class="form-control" id="description"
+            placeholder="Opis produktu" rows="4"></textarea>
+          <app-validation-meassage [control]="form.get('description')"></app-validation-meassage>
+        </div>
+        <div class="form-group basic-information__storage">
+          <label for="storage">Ilość w magazynie</label>
+          <input formControlName="storage" type="number" class="form-control" placeholder="Ilośc towaru w magazynie">
+          <app-validation-meassage [control]="form.get('storage')">Ilość</app-validation-meassage>
+        </div>
+      </div>
+      <div class="sizes-information">
+        <div class="form-group">
+          <div>
+            <label for="size">Dostępne rozmiary</label>
+            <input #size formControlName="validSize" type="text" class="form-control" placeholder="Rozmiar produktu"
+              (keyup.enter)="newSize(size)">
+          </div>
+          <app-validation-meassage [control]="form.get('validSize')">Rozmiar</app-validation-meassage>
+          <div class="buttons">
+            <button (click)="newSize(size)" [disabled]="form.get('validSize').invalid" class="btnn add-new-size-btn"
+              type="button">
+              Dodaj
+              <img class="btn-icon" src="../../../assets/admin-nav-icons/plus.svg" alt="">
+            </button>
+            <button class="btnn cancel-btn" type="button"
+              *ngIf="form.get('validSize').touched && form.get('validSize').invalid"
+              (click)="resetSize()">Anuluj</button>
+          </div>
+
+        </div>
+        <ul class="size-list">
+          <li *ngFor="let s of form.get('size').controls; let i = index" class="size-list__item">
+            {{s.value}}
+            <button type="button" class="close-btn" aria-label="Close" (click)="removeSize(i)">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="others-information">
+        <div class="form-check">
+          <input formControlName="promotion" class="checkbox" type="checkbox" id="promotion">
+          <label class="form-check-label" for="promotion">
+            Promocja
+          </label>
+        </div>
+        <div class="form-check">
+          <input formControlName="isNew" class="checkbox" type="checkbox" id="isNew">
+          <label class="form-check-label" for="isNew">
+            Nowość na sklepie
+          </label>
+        </div>
+      </div>
+      <button *ngIf="!id" class="btnn add-new-btn" type="button" (click)="createProduct()" [disabled]="form.invalid">
+        Dodaj do sklepu
+        <img class="btn-icon" src="../../../assets/admin-nav-icons/plus.svg" alt="">
+      </button>
+      <button *ngIf="id" class="btn btn-warning mt-3" type="button" (click)="updateProduct()"
+        [disabled]="form.invalid">Zaaktualizuj produkt</button>
+    </div>
+    <div class="img-section">
+      <h2>Zdjęcia</h2>
+      <button class="btnn add-new-size-btn" type="button" (click)="newImgLink(img)">
+        Dodaj zdjęcie
+        <img class="btn-icon" src="../../../assets/admin-nav-icons/plus.svg" alt="">
+      </button>
+      <input #img type="text" class="form-control img-url-input" placeholder="Link do zdjęcia"
+        (keyup.enter)="newImgLink(img)">
+      <ul class="img-list">
+        <li *ngFor="let p of form.get('photos').controls; let i = index" class="img-list__item">
+          <img [src]="p.value" alt="Twoje zdjęcie jest nieprawidłowe">
+          <button type="button" class="close-btn" aria-label="Close" (click)="removePhoto(i)">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+  </section>
+</form>
+

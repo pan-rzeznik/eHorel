@@ -1,0 +1,147 @@
+.container {
+    min-height: 67vh;
+
+    @media(max-width: 765px) {
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+    }
+
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .btn {
+        margin-right: 10px;
+    }
+
+}
+
+
+thead {
+    border: none;
+    
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.171);
+
+    th {
+        padding: 20px 20px;
+        border:  none; 
+        border-radius: 10px;
+        font-weight: 500;
+    }
+
+    @media(max-width: 765px) {
+        display: none;
+    }
+}
+
+table td {
+    border: none;
+    vertical-align: middle;
+}
+
+table th {
+    border: none;
+    vertical-align: middle;
+
+    @media(max-width: 765px) {
+        display: none;
+    }
+}
+
+tbody {
+
+    @media(max-width: 765px) {
+        
+        tr {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+            margin: 10px 20px;
+        }
+
+        td {
+            width: 100%;
+            
+        }
+    }
+   
+}
+
+tfoot {
+    @media(max-width: 765px) {
+       display: none;
+    }
+}
+
+.product-img {
+    width: 80px;
+    border-radius: 5px;
+}
+
+.name-box {
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__name {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 0;
+        cursor: pointer;
+    }
+    &__size {
+        font-size: .9rem;
+        font-weight: 300;
+    }
+}
+
+.remove-btn {
+    border-radius: 100px;
+    display: inline-block;
+    min-width: 30px;
+    min-height: 30px; 
+    background-color: transparent;
+    outline: none;
+    border: 1px solid rgb(126, 126, 126);
+    color: rgb(126, 126, 126);
+    font-size: .9rem;
+    text-align: center;
+    cursor: pointer;
+    transition: .2s transform;
+
+    &:hover {
+        transform: scale(1.2) rotate(180deg);
+    }
+
+    @media(max-width: 765px) {
+        
+        display: none;
+    }
+}
+
+.product-quantity {
+    display: flex;
+    align-items: center;
+
+    & > * {
+        margin: 0 5px;
+    }
+
+    &__counter {
+        padding: 5px 10px;
+    }
+}
+
+.spacing {
+    height: 30px;
+}

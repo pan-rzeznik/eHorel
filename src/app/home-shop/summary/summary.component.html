@@ -1,0 +1,49 @@
+<section class="container md-container-fluid summary-container">
+  <h1>Podsumowanie zamówienia</h1>
+  <div class="products" *ngIf="order">
+    <h2>Produkty</h2>
+    <ul class="product-list">
+      <li class="product-list__item" *ngFor="let item of order.cart.items">
+        <div class="product-list__item-img">
+          <img [src]="item.product.photos[0]" alt="Img">
+        </div>
+        <div class="text-information">
+          <h3 class="product-list__item-title">{{item.product.name}}</h3>
+          <p class="product-list__item-size">Rozmiar: {{item.amount.size}} </p>
+          <div>
+            <span class="product-list__item-count">{{item.amount.quantity}}</span> X <span
+              class="product-list__item-price">{{item.product.price}} ZŁ</span>
+          </div>
+          <p class="product-list__item-finaly-price">{{item.product.price * item.amount.quantity | number:'1.1-2' }} ZŁ</p>
+        </div>
+      </li>
+    </ul>
+    <p class="products-price-summary">Razem: {{order.totalMoney}} ZŁ</p>
+  </div>
+  <div class="customer-info">
+    <div class="customer">
+      <h2>Dane do wysyłki</h2>
+      <p class="customer__name">{{order.form.contact.name}} {{order.form.contact.surname}}</p>
+      <div class="address">
+        <p class="customer__adress">{{order.form.contact.street}}</p>
+        <p class="customer__post-code">{{order.form.contact.postCode}}</p>
+        <p class="customer__city">{{order.form.contact.city}}</p>
+      </div>
+      <p class="customer__phone">{{order.form.contact.phone}}</p>
+      <p class="customer__mail">{{order.form.contact.mail}}</p>
+    </div>
+    <div class="paymants">
+      <h2>Spsób dostawy</h2>
+      <p class="paymants__paymantsType">{{order.form.paymants.paymentType}}</p>
+      <p class="paymants__delivery">{{order.form.paymants.delivery}}</p>
+    </div>
+    <div class="customer-message">
+        <label for="description">Wiadomość dla sprzedającego</label>
+        <textarea [(ngModel)]="message" type="text" class="form-control" id="description" placeholder="Treść wiadomości" rows="4"></textarea>
+      </div>
+      <button class="btn btn-secondary" type="button" [routerLink]="['/zamowienie']" >Powrót</button>
+    <button class="btn btn-primary" type="button" [routerLink]="['/end']" routerLinkActive="router-link-active"  (click)="finalizeOrder()">Order</button>
+  </div>
+  
+</section>
+

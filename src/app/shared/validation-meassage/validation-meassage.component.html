@@ -1,0 +1,9 @@
+<small *ngIf="control.touched && control.invalid">
+  <p class="m-0" *ngIf="control.errors?.required">Pole jest wymagane</p> 
+  <p class="m-0" *ngIf="control.errors?.max">Twój numer jest zbyt długi</p> 
+  <p class="m-0" *ngIf="control.errors?.min">Twój numer jest za krótki</p> 
+  <p class="m-0" *ngIf="control.errors?.pattern">Twój mail ma niepoprawny format</p> 
+  <p class="m-0" *ngIf="control.errors?.notEqual">Wpisane dane nie są identyczne</p>
+  <p class="m-0" *ngIf="control.errors?.cannotLessThanZero"><ng-content></ng-content> nie może być ujemna</p>
+</small> 
+  

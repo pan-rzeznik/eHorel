@@ -1,0 +1,24 @@
+<div class="product">
+  <div *ngIf="product.isNew" class="isNewLabel">
+    Nowość
+  </div> 
+  <div class="product-card">
+    <div class="inner-box">
+      <section class="img__section">
+        <img [src]="product.photos[0]" alt="Product image" class="img">
+      </section>
+      <section class="text__section">
+        <h3>Dostępne rozmiary</h3>
+        <div class="sizes">
+          <div class="sizes__box" *ngFor="let s of product.size">
+            <span>{{ s }}</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="outer-box">
+    <h1>{{ product.name }}</h1>
+    <h2>{{ product.price }} zł</h2>
+  </div>
+</div>

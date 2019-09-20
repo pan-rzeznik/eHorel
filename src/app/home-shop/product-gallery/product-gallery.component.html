@@ -1,0 +1,13 @@
+<div class="main-gallery-conatiner">
+  <div class="gallery__image">
+    <div class="big-image">
+      <img [src]="mainImage">
+    </div>
+  </div>
+  <div class="gallery__side-image">
+    <div class="thumbnail" *ngFor="let img of images">
+        <img [src]="img" [class.active]="mainImage === img" (click)="changeMainPhoto(img)">
+    </div>
+  </div>
+
+</div>
