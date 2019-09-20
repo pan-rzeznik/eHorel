@@ -19,9 +19,8 @@
     </div>
     <app-validation-meassage [control]="form.get('confirmPassword')"></app-validation-meassage> 
   
-    <button class="btnn btn-submit" (click)="createNewUserWithEmail()" [disabled]="form.invalid" >Zarejestruj się</button>
+    <button class="btnn btn-submit" [disabled]="form.invalid" >Zarejestruj się</button>
   </form>
   <button class="btnn btn-return" type="button" [routerLink]="['../']">Powrót</button>
 </div>
   
-<pre>{{form.value | json}}</pre> 

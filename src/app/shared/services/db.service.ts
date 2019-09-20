@@ -53,6 +53,13 @@ export class DbService {
     }));
   }
 
+  getTotalCountOfProducts() {
+    return this.firebase.collection('products').get();
+  }
+
+  getTotalCountOfNewProducts() {
+    return this.firebase.collection('products', ref => ref.where('isNew', '==', true)).get();
+  }
 
   getProductsByCategory(category): Observable<any> {
     return this.firebase.collection('products', ref => ref.where('category', '==', category)).snapshotChanges()

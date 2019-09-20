@@ -14,34 +14,10 @@ export class AuthService {
               private db: AngularFirestore,
               private router: Router) { }
 
-  createUserWithEmail(email: string, password: string) {
-    this.fireAuth.auth.createUserWithEmailAndPassword(email, password).then(cred => {
-      this.db.collection('users').doc(cred.user.uid).set({
-          email,
-          password,
-          isAdmin: false
-        });
-    });
-  }
-  createUserWithGoogle() {
-    this.fireAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then( cred => {
-      this.db.collection('users').doc(cred.user.uid).set({
-        email: cred.user.email,
-        isAdmin: false
-      });
-      this.router.navigate(['']);
-    }
-    );
-  }
 
-  loginWithGoogle() {
-    this.fireAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then( () => {
-        this.router.navigate(['']);
-      }
-    );
-  }
+
   loginUser(email: string, password: string) {
-    this.fireAuth.auth.signInWithEmailAndPassword(email, password).then();
+    return this.fireAuth.auth.signInWithEmailAndPassword(email, password);
   }
   logoutUser() {
     this.fireAuth.auth.signOut();

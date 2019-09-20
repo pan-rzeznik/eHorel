@@ -38,7 +38,10 @@
             font-size: .7rem;
         }
     }
-    
+    @media(max-width:450px) {
+      
+        padding: 30px 20px;
+    }
 }
 
 .btn-email {
@@ -60,4 +63,10 @@
     padding: 8px 45px;
     background-color: #2699FB;
     margin: 0 auto;
+}
+
+.error-message {
+    margin-top: -10px;
+    text-align: center;
+    color: red; 
 }

@@ -1,0 +1,25 @@
+<section class="home-admin">
+  <nav class="section-nav">
+    <h1 class="section-title">Strona główna</h1>
+  </nav>
+  <h2>Witam w panelu administarcyjnym sklepu eHorel!</h2>
+  <h3>Główne informacje:</h3>
+  <div class="info-boxes">
+    <div class="info-boxes__box">
+      <p>{{ dataObject.ordersCount}}</p>
+      <h4>Liczba zamówień</h4>
+    </div>
+    <div class="info-boxes__box">
+      <p>{{ dataObject.productsCount}}</p>
+      <h4>Liczba produktów w sklepie</h4>
+    </div>
+    <div class="info-boxes__box">
+      <p>{{ dataObject.isNewProducts}}</p>
+      <h4>Produkty nowości</h4>
+    </div>
+    <div class="info-boxes__box">
+      <p>{{ dataObject.totalValueOfProducts | currency:null:''}}</p>
+      <h4>Wartość asortymentu (PLN)</h4>
+    </div>
+  </div>
+</section>

@@ -19,6 +19,8 @@ import { ShopRoutingModule } from './shop-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { ShopComponent } from './shop/shop.component';
+import { ThanksForOrderComponent } from './thanks-for-order/thanks-for-order.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ShopComponent } from './shop/shop.component';
     ProductGalleryComponent,
     SingleProductComponent,
     ProductCardComponent,
-    ShopComponent
+    ShopComponent,
+    ThanksForOrderComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,

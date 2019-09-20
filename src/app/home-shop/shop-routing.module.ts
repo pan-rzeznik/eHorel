@@ -12,6 +12,7 @@ import { ProductsResolver } from '../shared/models/products.resoler';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { OrderComponent } from './order/order.component';
 import { NoOrderGuard } from '../shared/no-order.guard';
+import { ThanksForOrderComponent } from './thanks-for-order/thanks-for-order.component';
 
 const routes: Routes = [
   {
@@ -60,6 +61,10 @@ const routes: Routes = [
         path: 'podsumowanie',
         component: SummaryComponent,
         canActivate: [NoOrderGuard]
+      },
+      {
+        path: 'end',
+        component: ThanksForOrderComponent,
       }
     ]
   }

@@ -17,7 +17,7 @@
 
 app-panel-menu {
     position: absolute;
-    z-index: 1000;
+    z-index: 2000;
     transition: .3s transform;
 
     @media(max-width: 1170px) {
@@ -31,9 +31,10 @@ app-panel-menu {
     @media(max-width: 1170px) {
         display: inline-block;
         position: absolute;
-        left: 30px;
-        top: 30px;
+        left: 20px;
+        top: 8px;
         cursor: pointer;
+        z-index: 1300;
         transition: .3s transform;
 
         

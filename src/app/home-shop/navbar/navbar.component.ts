@@ -13,6 +13,7 @@ import { ShoppingCard } from '../../shared/models/shoppingCard';
 })
 export class NavbarComponent implements OnInit {
   currentUser;
+  isActive = false;
   items$: Observable<ShoppingCard>;
   constructor(private auth: AuthService,
               private router: Router,
@@ -25,6 +26,10 @@ export class NavbarComponent implements OnInit {
 
     logout() {
       this.auth.logoutUser();
+    }
+
+    showMenu() {
+      this.isActive = !this.isActive;
     }
 }
 

@@ -14,11 +14,11 @@
             <span class="product-list__item-count">{{item.amount.quantity}}</span> X <span
               class="product-list__item-price">{{item.product.price}} ZŁ</span>
           </div>
-          <p class="product-list__item-finaly-price">{{item.product.price * item.amount.quantity}} ZŁ</p>
+          <p class="product-list__item-finaly-price">{{item.product.price * item.amount.quantity | number:'1.1-2' }} ZŁ</p>
         </div>
       </li>
     </ul>
-    <p class="products-price-summary">Razem: **kwota** ZŁ</p>
+    <p class="products-price-summary">Razem: {{order.totalMoney}} ZŁ</p>
   </div>
   <div class="customer-info">
     <div class="customer">
@@ -39,10 +39,11 @@
     </div>
     <div class="customer-message">
         <label for="description">Wiadomość dla sprzedającego</label>
-        <textarea type="text" class="form-control" id="description" placeholder="Treść wiadomości" rows="4"></textarea>
+        <textarea [(ngModel)]="message" type="text" class="form-control" id="description" placeholder="Treść wiadomości" rows="4"></textarea>
       </div>
+      <button class="btn btn-secondary" type="button" [routerLink]="['/zamowienie']" >Powrót</button>
+    <button class="btn btn-primary" type="button" [routerLink]="['/end']" routerLinkActive="router-link-active"  (click)="finalizeOrder()">Order</button>
   </div>
   
 </section>
-<button class="btn btn-secondary" type="button">Powrót</button>
-<button class="btn btn-danger" type="button" (click)="tets()">Order</button>
+

@@ -1,6 +1,67 @@
-
-<ul>
-  <li *ngFor="let order of orders">
-    {{ order.orderPerson.paymants | json }}
-  </li>
-</ul>
+<section class="orders">
+  <nav class="section-nav">
+    <h1 class="section-title ">Zamówienia</h1>
+  </nav>
+ <div class="list">
+   <h2>Lista zamówień</h2>
+   <ul class="orders-list">
+     <li class="orders-list__item" *ngFor="let order of orders; let i = index;" [class.active]="order.id == activeOrder.id">
+        <span>Nr.{{i + 1}}</span>
+        <span>Data: {{ order.date.seconds*1000 | date:'yyyy-MM-dd'}}</span>
+        <span>{{order.total}} ZŁ</span>
+        <button class="btn btn-primary" type="button" (click)="test(i)">Podgląd</button>
+     </li> 
+   </ul>
+ </div>
+  <div class="details">
+      <h2>Szczegóły zamówienia</h2>
+      <div class="details-box" *ngIf="activeOrder">
+          <h3>Dane zamawiającego</h3>
+          <div class="details-box__customer">
+            <div>
+                <p>{{activeOrder.orderPerson.contact.name}}</p>
+                <p>{{activeOrder.orderPerson.contact.surname}}</p>
+            </div>
+            <div>
+                <p>{{activeOrder.orderPerson.contact.city}}</p>
+                <p>{{activeOrder.orderPerson.contact.street}}</p>
+                <span>{{activeOrder.orderPerson.contact.postCode}} </span>
+                <span>{{activeOrder.orderPerson.contact.city}}</span>
+            </div>
+            <div>
+                <p>{{activeOrder.orderPerson.contact.phone}}</p>
+                <p>{{activeOrder.orderPerson.contact.mail}}</p>
+            </div>
+          </div>
+          <h3>Produkty</h3>
+          <div class="details-box__products">
+              <ul class="product-list">
+                  <li class="product-list__item" *ngFor="let item of activeOrder.products">
+                    <div class="product-list__item-img">
+                      <img [src]="item.product.photos[0]" alt="Img">
+                    </div>
+                    <div class="text-information">
+                      <h3 class="product-list__item-title">{{item.product.name}}</h3>
+                      <p class="product-list__item-size">Rozmiar: {{item.amount.size}} </p>
+                      <div>
+                        <span class="product-list__item-count">{{item.amount.quantity}}</span> X <span
+                          class="product-list__item-price">{{item.product.price}} ZŁ</span>
+                      </div>
+                      <p class="product-list__item-finaly-price">{{item.product.price * item.amount.quantity | number:'1.1-2' }} ZŁ</p>
+                    </div>
+                  </li>
+                </ul>
+          </div>
+          <h3>Wiadmośc dla sprzedającego:</h3>
+          <div class="details-box__message">
+            <h4 *ngIf="activeOrder.message">{{ activeOrder.message }}</h4>
+            <h4 *ngIf="!activeOrder.message">Brak wiadomości</h4>
+          </div>
+          <h3>Metoda dostawy:</h3>
+          <div class="details-box__delivery">
+            <span>{{activeOrder.orderPerson.paymants.delivery}} - </span>
+            <span>{{activeOrder.orderPerson.paymants.paymentType}}</span>
+          </div>
+      </div>
+  </div>
+</section>

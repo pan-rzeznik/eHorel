@@ -6,8 +6,7 @@
       </div>
       <div class="admin-text-box">
         <h2>Sklep e-Horel</h2>
-        <h3>mailadmina@gmail.com</h3>
- 
+        <h3 *ngIf="user$ | async as user"> {{ user.email }}</h3>
       </div>
     </div>
   </div>
@@ -37,14 +36,6 @@
               <img src="../../../assets/admin-nav-icons/Path 199.svg" alt="">
             </div>
             <a>Zamówienia</a>
-          </div>
-        </li>
-        <li>
-          <div class="nav-items-box__item">
-            <div class="nav-items-box__item-img-box">
-              <img src="../../../assets/admin-nav-icons/user.svg" alt="">
-            </div>
-            <a>Klienci</a>
           </div>
         </li>
         <li>

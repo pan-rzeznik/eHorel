@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
   form;
+  error;
   constructor(private auth: AuthService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit() {
@@ -23,16 +24,11 @@ export class SignInComponent implements OnInit {
   }
 
   login() {
-    this.auth.loginUser(this.form.get('email').value, this.form.get('password').value);
-    this.router.navigate(['/']);
-  }
-
-  loginWithGoogleMethod() {
-    this.auth.loginWithGoogle();
-  }
-
-  signUpWithGoogle() {
-    this.auth.createUserWithGoogle();
+    this.auth.loginUser(this.form.get('email').value, this.form.get('password').value).then(() => {
+      this.router.navigate(['/']);
+    }).catch( error => {
+      this.error = error.message;
+    });
   }
 
 }

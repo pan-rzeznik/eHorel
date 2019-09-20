@@ -9,17 +9,20 @@ import { OrderService } from './services/order.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { ValidationMeassageComponent } from './validation-meassage/validation-meassage.component';
 import { ConfirmValueDirective } from './directive/confirm-value.directive';
+import { MenuDirective } from './menu.directive';
+
 
 
 @NgModule({
   declarations: [
     ValidationMeassageComponent,
     ConfirmValueDirective,
+    MenuDirective,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     AuthService,
@@ -34,6 +37,7 @@ import { ConfirmValueDirective } from './directive/confirm-value.directive';
     ReactiveFormsModule,
     FormsModule,
     ConfirmValueDirective,
+    MenuDirective,
   ]
 })
 export class SharedModule { }

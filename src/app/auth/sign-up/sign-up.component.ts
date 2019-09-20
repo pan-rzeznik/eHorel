@@ -25,8 +25,4 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-  createNewUserWithEmail() {
-    this.auth.createUserWithEmail(this.form.get('email').value, this.form.get('confirmPassword').value);
-    this.router.navigate(['/']);
-  }
 }

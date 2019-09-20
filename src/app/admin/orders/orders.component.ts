@@ -9,11 +9,19 @@ import { first } from 'rxjs/operators';
 })
 export class OrdersComponent implements OnInit {
   orders;
+  activeOrder;
 
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
-    this.orderService.getAllOrders().pipe(first()).subscribe(res => this.orders = res);
+    this.orderService.getAllOrders().pipe(first()).subscribe(res => {
+      this.orders = res;
+      this.activeOrder = this.orders[0];
+    });
+  }
+
+  test(index) {
+    this.activeOrder = this.orders[index];
   }
 
 }

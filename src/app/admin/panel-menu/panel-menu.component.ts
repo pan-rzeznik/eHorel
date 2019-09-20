@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./panel-menu.component.scss']
 })
 export class PanelMenuComponent implements OnInit {
-
+  user$;
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
+    this.user$ = this.auth.currentUser();
   }
   logout() {
     this.auth.logoutUser();

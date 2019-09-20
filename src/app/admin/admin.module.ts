@@ -8,6 +8,8 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { PanelMenuComponent } from './panel-menu/panel-menu.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { HomeAdminComponent } from './home-admin/home-admin.component';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
     OrdersComponent,
     NewProductComponent,
     ProductsListComponent,
-    PanelMenuComponent
+    PanelMenuComponent,
+    HomeAdminComponent,
   ],
   imports: [
     AdminRoutingModule,

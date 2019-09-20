@@ -1,5 +1,5 @@
-<div class="container px-0" *ngIf="products$ | async as products">
-  <div class=" py-3 pt-md-5 pb-md-4 mx-auto text-center">
+<div class="container px-3" *ngIf="products$ | async as products">
+  <div class="mx-auto text-center">
     <h1>Twój koszyk</h1>
     <div class="buttons">
       <button *ngIf="products.totalCountOfProduct > 0" class="btn btn-sm btn-secondary" type="button"

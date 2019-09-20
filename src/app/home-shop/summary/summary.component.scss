@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: minmax(300px, 400px) minmax(400px, 1fr);
     grid-column-gap: 50px;
+    margin-bottom: 50px;
 
     h1 {
         margin: 20px 0 50px 0;
@@ -9,9 +10,19 @@
         grid-column: 1/-1;
         text-align: center;
         font-weight: 500;
+
+        @media(max-width: 882px) {
+            margin: 20px 0 0 0;
+            font-size: 22px;
+        }
+        
     }
 
-
+    @media(max-width: 882px) {
+        grid-template-columns: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 40px;
+    }
 }
 
 h2 {
@@ -22,7 +33,6 @@ h2 {
 }
 
 .products {
-    grid-column: 1/2;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.082);
@@ -90,7 +100,6 @@ h2 {
 }
 
 .customer-info {
-    grid-column: 2/3;
     height: fit-content;
     display: grid;
     grid-template-columns: 1.25fr 1fr;
@@ -99,6 +108,12 @@ h2 {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.082);
+
+    @media(max-width: 470px) {
+        grid-template-columns: 1fr;
+        grid-column-gap: 0;
+        grid-row-gap: 20px;
+    }
 
     p {
         font-size: 14px;
@@ -137,4 +152,14 @@ h2 {
     .container {
         margin: 0 50px;
      }
+}
+
+@media(max-width: 652px) {
+    .container {
+        margin: 0;
+     }
+}
+
+.btn {
+    margin-top: 20px;
 }

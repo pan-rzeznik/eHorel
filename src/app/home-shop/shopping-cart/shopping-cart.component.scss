@@ -1,6 +1,26 @@
+.container {
+    min-height: 67vh;
+
+    @media(max-width: 765px) {
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+    }
+
+}
 .buttons {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
+
+    .btn {
+        margin-right: 10px;
+    }
+
 }
 
 

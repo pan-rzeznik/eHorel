@@ -53,6 +53,7 @@ export class ShoppingCartService {
     const cartId = await this.getOrCreate();
     const path = `carts/ + ${cartId} + /items`;
     localStorage.removeItem('shoppingCart');
+    localStorage.removeItem('order');
   }
 
   async addToCart(product, size) {

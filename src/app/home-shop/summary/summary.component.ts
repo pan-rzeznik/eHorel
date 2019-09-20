@@ -9,13 +9,17 @@ import { OrderService } from 'src/app/shared/services/order.service';
 })
 export class SummaryComponent implements OnInit {
   order: Order;
+  message: string = '';
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
-    this.order = JSON.parse(localStorage.getItem('order'));
+    const cart = JSON.parse(localStorage.getItem('order')).cart;
+    const person = JSON.parse(localStorage.getItem('order')).form;
+    this.order = new Order(cart, person);
   }
 
-  tets() {
+  finalizeOrder() {
+    this.order.message = this.message;
     this.orderService.makeOrder(this.order);
   }
 }

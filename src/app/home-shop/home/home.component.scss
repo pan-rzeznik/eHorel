@@ -33,6 +33,7 @@
             height: 300px;
             width: 200px;
         }
+
     }
 
     &__small-img {
@@ -133,4 +134,10 @@
             display: none;
         }
      } 
+
+     @media(max-width: 580px) {
+        &__slide {
+            min-height: 425px;
+        }
+     }
 }

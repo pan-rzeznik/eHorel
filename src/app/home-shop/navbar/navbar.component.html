@@ -4,10 +4,7 @@
         <img src="../../../assets/navbar/sign-in.svg" alt="Sign-in icon">
     </div>
     <div class="navbar-header-section__sign-in" *ngIf="currentUser">
-      <Span>Twoje konto</Span>
-      <ul class="profile-menu"> 
-        <li class="profile-menu-item" (click)="logout()">Wyloguj się</li>
-      </ul>
+      <Span [routerLink]="['/admin']">Twoje konto</Span>
     </div>
     <div class="navbar-header-section__logo" [routerLink]="['/']">
         <img src="../../../assets/navbar/Horel-logo.svg" alt="Shop's logo">
@@ -18,28 +15,31 @@
             <span *ngIf="items$ | async as items">{{ items.totalCountOfProduct }}</span>
         </div>
     </div> 
-    <button class="toggle" *ngIf="false">toggler</button>
+    <button class="toggle" (click)="showMenu()">
+      <img src="./../../../assets/navbar/h-menu.svg" alt="">
+    </button>
+   
   </div>
   
-  <div class="navbar-list">
+  <div class="navbar-list" [class.navbar-list--open]="isActive"> 
     <ul> 
       <li class="navbar-list__item"> 
-        <a class="navbar-list__item-link" [routerLink]="['/news']" routerLinkActive="active">Nowości</a>
+        <a class="navbar-list__item-link" [routerLink]="['/news']" routerLinkActive="active" (click)="showMenu()">Nowości</a>
       </li>
       <li class="navbar-list__item">
-        <a class="navbar-list__item-link" [routerLink]="['/categories', 'sukienki']" routerLinkActive="active2">Sukienki</a>
+        <a class="navbar-list__item-link" [routerLink]="['/categories', 'sukienki']" routerLinkActive="active2" (click)="showMenu()">Sukienki</a>
       </li>
       <li class="navbar-list__item">
-        <a class="navbar-list__item-link" [routerLink]="['/categories', 'bluzki']" routerLinkActive="active2">Bluzki</a> 
+        <a class="navbar-list__item-link" [routerLink]="['/categories', 'bluzki']" routerLinkActive="active2" (click)="showMenu()" >Bluzki</a> 
       </li>
       <li class="navbar-list__item">
-        <a class="navbar-list__item-link" [routerLink]="['/categories', 'kombinezony']" routerLinkActive="active2">Kombinezony</a>
+        <a class="navbar-list__item-link" [routerLink]="['/categories', 'kombinezony']" routerLinkActive="active2" (click)="showMenu()">Kombinezony</a>
       </li>
       <li class="navbar-list__item">
-        <a class="navbar-list__item-link" [routerLink]="['/categories', 'spodnie']" routerLinkActive="active2">Spodnie</a>
+        <a class="navbar-list__item-link" [routerLink]="['/categories', 'spodnie']" routerLinkActive="active2" (click)="showMenu()">Spodnie</a>
       </li>
       <li class="navbar-list__item">
-        <a class="navbar-list__item-link" [routerLink]="['/categories', 'dodatki']" routerLinkActive="active2">Dodatki</a>
+        <a class="navbar-list__item-link" [routerLink]="['/categories', 'dodatki']" routerLinkActive="active2" (click)="showMenu()">Dodatki</a>
       </li>
     </ul> 
   </div>

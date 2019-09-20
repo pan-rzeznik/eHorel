@@ -1,7 +1,11 @@
 <form [formGroup]="form">
   <section class="new-product-box">
+      <nav class="section-nav">
+          <h1 class="section-title">Zarządzaj produktem</h1>
+        </nav>
     <div class="form-section">
-      <h1>Nowy produkt</h1>
+      <h2 *ngIf="!id">Nowy produkt</h2>
+      <h2 *ngIf="id">Edytuj produkt</h2>
       <h2 *ngIf="id" class="link-to-shop" (click)="showInShop()">Zobacz w sklepie</h2> 
       <div class="basic-information">
         <div class="form-group basic-information__name">
@@ -73,12 +77,6 @@
           <input formControlName="isNew" class="checkbox" type="checkbox" id="isNew">
           <label class="form-check-label" for="isNew">
             Nowość na sklepie
-          </label>
-        </div>
-        <div class="form-check">
-          <input formControlName="isNew" class="checkbox" type="checkbox" id="isNew">
-          <label class="form-check-label" for="isNew">
-            Ukryj produkt w sklepie
           </label>
         </div>
       </div>

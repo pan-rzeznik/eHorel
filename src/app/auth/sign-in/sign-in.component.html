@@ -1,9 +1,10 @@
 <div class="wrapper">
   <h1>Zaloguj się</h1>
   <h2>Skorzystaj z formularza poniżej by się zalogować</h2>
+  <small *ngIf="error" class="error-message">{{ error }}</small>
   <form [formGroup]="form">
     <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
+      <label for="exampleInputEmail1">Adres email</label>
       <input formControlName="email" type="email" class="form-control" placeholder="Wpisz swój adres email...">
     </div>
     <div class="form-group">
@@ -11,13 +12,12 @@
       <input formControlName="password" type="password" class="form-control" placeholder="Wpisz swoje hasło...">
     </div>
     <div class="login">
-        <button class="btnn btn-submit" (click)="loginWithGoogleMethod()">Zaloguj z Google</button>
         <button class="btnn btn-submit" (click)="login()">Zaloguj</button>
     </div> 
   </form>
-  <h3>Nie masz jeszcze konta?</h3>
-  <p>Możesz je założyć przy pomocy linków poniżej</p>
-  <button class="btnn btn-email" type="button" [routerLink]="['sign-up']">Email</button>
-  <button class="btnn btn-google" type="button" (click)="signUpWithGoogle()">Gogole</button>
+  <h3>Panel dla administratorów</h3>
+  <p>Możesz się zalogować jako administartor korzystając z danych poniżej. W obecnej wersji idywidualne konta klientów nie są wspierane</p>
+  <small>Login: admin@admin.pl</small>
+  <small>Hasło: admin123456 </small>
 </div>
  

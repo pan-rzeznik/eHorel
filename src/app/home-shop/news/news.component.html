@@ -2,7 +2,7 @@
 <div class="container d-flex flex-wrap justify-content-center ">
  
   <ng-container class="row d-flex justify-content-start" *ngFor="let item of items$ | async">
-    <app-product-card [product]="item"></app-product-card>
+    <app-product-card [product]="item" [routerLink]="['/categories/'+ item.category, item.id]"></app-product-card>
   </ng-container>
   
 </div>

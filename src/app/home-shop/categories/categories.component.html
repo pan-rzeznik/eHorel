@@ -13,7 +13,7 @@
   <div class="row">
     <div class="d-flex flex-wrap justify-content-center">
       <ng-container class="d-flex flex-wrap" *ngFor="let item of filteredProduct">
-        <app-product-card class="productCard" [product]="item" [routerLink]="['/categories', item.category, item.id]">
+        <app-product-card  class="productCard" [product]="item" [routerLink]="['/categories', item.category, item.id]">
         </app-product-card>
       </ng-container>
     </div>
