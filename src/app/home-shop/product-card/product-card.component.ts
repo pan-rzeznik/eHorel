@@ -10,6 +10,4 @@ export class ProductCardComponent {
   @Input() product;
   @Input() isFavorite;
 
-  constructor() { }
-
 }

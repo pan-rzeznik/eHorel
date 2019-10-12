@@ -5,11 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './header-bilboard.component.html',
   styleUrls: ['./header-bilboard.component.scss']
 })
-export class HeaderBilboardComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class HeaderBilboardComponent {
 
 }

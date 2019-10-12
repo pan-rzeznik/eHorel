@@ -6,12 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './validation-meassage.component.html',
   styleUrls: ['./validation-meassage.component.scss']
 })
-export class ValidationMeassageComponent implements OnInit {
+export class ValidationMeassageComponent {
 
   @Input() control: FormControl;
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

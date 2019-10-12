@@ -1,6 +1,7 @@
 import { DbService } from '../../shared/services/db.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-manage-products',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./manage-products.component.scss']
 })
 export class ManageProductsComponent implements OnInit {
-  products$;
+  products$: Observable<any>;
   constructor(private db: DbService, private router: Router) { }
 
   ngOnInit() {

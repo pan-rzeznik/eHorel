@@ -8,11 +8,9 @@ import { TweenMax, Power4 } from 'gsap';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor() { }
 
  ngOnInit() {
   this.animateHero();
-
   }
 
   animateHero() {
