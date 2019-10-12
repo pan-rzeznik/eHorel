@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CustomValidators } from '../../shared/validators/customValidator';
 import { DbService } from '../../shared/services/db.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators} from '@angular/forms';
+import { FormBuilder, FormControl, Validators, AbstractControl} from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 

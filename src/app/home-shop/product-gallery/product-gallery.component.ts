@@ -10,8 +10,6 @@ export class ProductGalleryComponent implements OnInit {
   @Input() images;
   mainImage;
 
-  constructor() { }
-
   ngOnInit() {
     this.mainImage = this.images[0];
   }
